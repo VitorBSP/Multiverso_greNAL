@@ -52,7 +52,7 @@
 51,1971,Internacional,Grêmio,Esportivo,São José,Valdomiro/DécioInternacional/Esportivo,11,Porto Alegre,Porto Alegre,Bento Gonçalves,Porto Alegre
 52,1972,Internacional,Grêmio,Novo Hamburgo,Caxias,ClaudiomiroInternacional,13,Porto Alegre,Porto Alegre,Novo Hamburgo,Caxias do Sul
 53,1973,Internacional,Grêmio,Inter SM,Esportivo,BebetoGaúcho,12,Porto Alegre,Porto Alegre,Santa Maria,Bento Gonçalves
-54,1974,Internacional,Grêmio,Atlético Carazinho,Caxias,EscurinhoInternacional,11,Porto Alegre,Porto Alegre,,Caxias do Sul
+54,1974,Internacional,Grêmio,Atlético Carazinho,Caxias,EscurinhoInternacional,11,Porto Alegre,Porto Alegre,Carazinho,Caxias do Sul
 55,1975,Internacional,Grêmio,Santa Cruz,Caxias,Tarciso/BebetoGrêmio/Gaúcho,13,Porto Alegre,Porto Alegre,Santa Cruz do Sul,Caxias do Sul
 56,1976,Internacional,Grêmio,Esportivo,Caxias,AlcindoGrêmio,17,Porto Alegre,Porto Alegre,Bento Gonçalves,Caxias do Sul
 57,1977,Grêmio,Internacional,Caxias,Juventude,Flávio/Luís FreirePelotas/Esportivo,13,Porto Alegre,Porto Alegre,Caxias do Sul,Caxias do Sul
@@ -67,12 +67,12 @@
 66,1986,Grêmio,Internacional,Juventude,Novo Hamburgo,BalaloInternacional,14,Porto Alegre,Porto Alegre,Caxias do Sul,Novo Hamburgo
 67,1987,Grêmio,Internacional,Esportivo,Caxias,AmarildoInternacional,17,Porto Alegre,Porto Alegre,Bento Gonçalves,Caxias do Sul
 68,1988,Grêmio,Internacional,Pelotas,Santa Cruz,LimaGrêmio,10,Porto Alegre,Porto Alegre,Pelotas,Santa Cruz do Sul
-69,1989,Grêmio,Internacional,Caxias,Glória,CaioJuventude,10,Porto Alegre,Porto Alegre,Caxias do Sul,
+69,1989,Grêmio,Internacional,Caxias,Glória,CaioJuventude,10,Porto Alegre,Porto Alegre,Caxias do Sul,Vacaria
 70,1990,Grêmio,Caxias,Internacional,Juventude,NílsonGrêmio,22,Porto Alegre,Caxias do Sul,Porto Alegre,Caxias do Sul
 71,1991,Internacional,Grêmio,Juventude,Lajeadense,GélsonLajeadense,17,Porto Alegre,Porto Alegre,Caxias do Sul,Lajeado
 72,1992,Internacional,Grêmio,Pelotas,Caxias,GílsonBrasil de Pelotas,13,Porto Alegre,Porto Alegre,Pelotas,Caxias do Sul
 73,1993,Grêmio,Internacional,Juventude,Pelotas,MauroGrêmio Santanense,19,Porto Alegre,Porto Alegre,Caxias do Sul,Pelotas
-74,1994,Internacional,Juventude,Ypiranga,Glória,Paulo GaúchoYpiranga de Erechim,24,Porto Alegre,Caxias do Sul,Erechim,
+74,1994,Internacional,Juventude,Ypiranga,Glória,Paulo GaúchoYpiranga de Erechim,24,Porto Alegre,Caxias do Sul,Erechim,Vacaria
 75,1995,Grêmio,Internacional,Juventude,São Luiz,AiltonYpiranga de Erechim,16,Porto Alegre,Porto Alegre,Caxias do Sul,Ijuí
 76,1996,Grêmio,Juventude,Santo Ângelo,Internacional,Sandro PiresYpiranga de Erechim,16,Porto Alegre,Caxias do Sul,Santo Ângelo,Porto Alegre
 77,1997,Internacional,Grêmio,Veranópolis,Brasil de Pelotas,Marcus ViníciusGuarani-VA,27,Porto Alegre,Porto Alegre,Veranópolis,Pelotas
@@ -82,8 +82,8 @@
 81,2001,Grêmio,Juventude,Pelotas,Internacional,ChiquinhoSão José-RS,15,Porto Alegre,Caxias do Sul,Pelotas,Porto Alegre
 82,2002,Internacional,15 de Novembro,Juventude,Pelotas,Sandro Sotilli15 de Novembro,21,Porto Alegre,Campo Bom,Caxias do Sul,Pelotas
 83,2003,Internacional,15 de Novembro,Juventude,São Gabriel,FlávioPelotas,18,Porto Alegre,Campo Bom,Caxias do Sul,São Gabriel
-84,2004,Internacional,Canoas,Glória,Grêmio,Sandro SotilliGlória,27,Porto Alegre,Canoas,,Porto Alegre
-85,2005,Internacional,15 de Novembro,Glória,Grêmio,FelipePasso Fundo,10,Porto Alegre,Campo Bom,,Porto Alegre
+84,2004,Internacional,Canoas,Glória,Grêmio,Sandro SotilliGlória,27,Porto Alegre,Canoas,Vacaria,Porto Alegre
+85,2005,Internacional,15 de Novembro,Glória,Grêmio,FelipePasso Fundo,10,Porto Alegre,Campo Bom,Vacaria,Porto Alegre
 86,2006,Grêmio,Internacional,Juventude,Caxias,GiancarloNovo Hamburgo,14,Porto Alegre,Porto Alegre,Caxias do Sul,Caxias do Sul
 87,2007,Grêmio,Juventude,Veranópolis,Caxias,Vítor HugoVeranópolis,13,Porto Alegre,Caxias do Sul,Veranópolis,Caxias do Sul
 88,2008,Internacional,Juventude,Inter SM,Caxias,Alex/MendesInternacional/Juventude,13,Porto Alegre,Caxias do Sul,Santa Maria,Caxias do Sul
