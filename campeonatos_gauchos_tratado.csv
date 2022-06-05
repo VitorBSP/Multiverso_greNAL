@@ -1,104 +1,103 @@
 ﻿Edicao,Ano,Primeiro,Segundo,Terceiro,Quarto,Artilheiro,N_de_gols,Cidade_Primeiro,Cidade_Segundo,Cidade_Terceiro,Cidade_Quarto
-1,1919,Brasil de Pelotas,Grêmio,,,ProençaBrasil de Pelotas,3,Pelotas,Porto Alegre,,
-2,1920,Guarany de Bagé,Grêmio,Uruguaiana,,GreccoGuarany de Bagé,2,Bagé,Porto Alegre,Uruguaiana,
-3,1921,Grêmio,Riograndense-SM,Brasil de Pelotas,Uruguaiana,MosquitoRiograndense,3,Porto Alegre,Santa Maria,Pelotas,Uruguaiana
-4,1922,Grêmio,Guarani de Alegrete,Guarany de Cruz Alta,Bagé,LagartoGrêmio,5,Porto Alegre,Alegrete,Cruz Alta,Bagé
-5,1925,Bagé,Grêmio,Guarany de Cruz Alta,Grêmio Santanense,PascoalitoBagé,,Bagé,Porto Alegre,Cruz Alta,Santana do Livramento
-6,1926,Grêmio,Guarany de Bagé,Guarany-CS,Independente,CoróGrêmio,,Porto Alegre,Bagé,Cachoeira do Sul,Santana do Livramento
-7,1927,Internacional,Bagé,14 de Julho,Nacional-SL,BarrosInternacional,,Porto Alegre,Bagé,Passo Fundo,São Leopoldo
-8,1928,Americano,Bagé,Gaúcho,Guarany de Rosário,JoãozinhoAmericano-RS,,Porto Alegre,Bagé,Passo Fundo,Rosário do Sul
-9,1929,Cruzeiro,Guarany de Bagé,Riograndense-SM,Ferro Carril,NestorCruzeiro-RS,,Cachoeirinha,Bagé,Santa Maria,Uruguaiana
-10,1930,Pelotas,Grêmio,Novo Hamburgo,,MarcialPelotas,,Pelotas,Porto Alegre,Novo Hamburgo,
-11,1931,Grêmio,Guarani de Alegrete,Riograndense-SM,Brasil de Pelotas,Artigas PérezGrêmio,3,Porto Alegre,Alegrete,Santa Maria,Pelotas
-12,1932,Grêmio,Pelotas,Santa Cruz,14 de Julho,Artigas PérezGrêmio,,Porto Alegre,Pelotas,Santa Cruz do Sul,Passo Fundo
-13,1933,São Paulo,Grêmio,Novo Hamburgo,Universal,NenêGrêmio,4,Rio Grande,Porto Alegre,Novo Hamburgo,Uruguaiana
+1,1919,Brasil de Pelotas,Grêmio,,,ProençaBrasil de Pelotas,3,Pelotas,Porto Alegre,,
+2,1920,Guarany de Bagé,Grêmio,Uruguaiana,,GreccoGuarany de Bagé,2,Bagé,Porto Alegre,Uruguaiana,
+3,1921,Grêmio,Riograndense-SM,Brasil de Pelotas,Uruguaiana,MosquitoRiograndense,3,Porto Alegre,Santa Maria,Pelotas,Uruguaiana
+4,1922,Grêmio,Guarani de Alegrete,Guarany de Cruz Alta,Bagé,LagartoGrêmio,5,Porto Alegre,Alegrete,Cruz Alta,Bagé
+5,1925,Bagé,Grêmio,Guarany de Cruz Alta,Grêmio Santanense,PascoalitoBagé,,Bagé,Porto Alegre,Cruz Alta,Santana do Livramento
+6,1926,Grêmio,Guarany de Bagé,Guarany-CS,Independente,CoróGrêmio,,Porto Alegre,Bagé,Cachoeira do Sul,Santana do Livramento
+7,1927,Internacional,Bagé,14 de Julho,Nacional-SL,BarrosInternacional,,Porto Alegre,Bagé,Passo Fundo,São Leopoldo
+8,1928,Americano,Bagé,Gaúcho,Guarany de Rosário,JoãozinhoAmericano-RS,,Porto Alegre,Bagé,Passo Fundo,Rosário do Sul
+9,1929,Cruzeiro,Guarany de Bagé,Riograndense-SM,Ferro Carril,NestorCruzeiro-RS,,Cachoeirinha,Bagé,Santa Maria,Uruguaiana
+10,1930,Pelotas,Grêmio,Novo Hamburgo,,MarcialPelotas,,Pelotas,Porto Alegre,Novo Hamburgo,
+11,1931,Grêmio,Guarani de Alegrete,Riograndense-SM,Brasil de Pelotas,Artigas PérezGrêmio,3,Porto Alegre,Alegrete,Santa Maria,Pelotas
+12,1932,Grêmio,Pelotas,Santa Cruz,14 de Julho,Artigas PérezGrêmio,,Porto Alegre,Pelotas,Santa Cruz do Sul,Passo Fundo
+13,1933,São Paulo,Grêmio,Novo Hamburgo,Universal,NenêGrêmio,4,Rio Grande,Porto Alegre,Novo Hamburgo,Uruguaiana
 14,1934,Internacional,Farroupilha,Riograndense-CA,Uruguaiana,TupanInternacional,3,Porto Alegre,Pelotas,Cruz Alta,Uruguaiana
-15,1935,Farroupilha,Grêmio,Novo Hamburgo,Grêmio Santanense,RussinhoGrêmio,7,Pelotas,Porto Alegre,Novo Hamburgo,Santana do Livramento
+15,1935,Farroupilha,Grêmio,Novo Hamburgo,Grêmio Santanense,RussinhoGrêmio,7,Pelotas,Porto Alegre,Novo Hamburgo,Santana do Livramento
 16,1936,Rio Grande,Internacional,Riograndense-SM,Novo Hamburgo,OscarNovo Hamburgo,7,Rio Grande,Porto Alegre,Santa Maria,Novo Hamburgo
-17,1937,Grêmio Santanense,Riograndense-RG,Novo Hamburgo,Riograndense-SM,Hortêncio Souza/Tom MixGrêmio Santanense,,Santana do Livramento,Rio Grande,Novo Hamburgo,Santa Maria
-18,1938,Guarany de Bagé,Riograndense-RG,Riograndense-SM,Renner,PicãoGuarany de Bagé,,Bagé,Rio Grande,Santa Maria,Porto Alegre
-19,1939,Riograndense-RG,Grêmio Santanense,Gaúcho,Novo Hamburgo,Carruíra/ChinêsRiograndense,,Rio Grande,Santana do Livramento,Passo Fundo,Novo Hamburgo
-20,1940,Internacional,Bagé,Riograndense-SM,Juventude,MarquesInternacional,,Porto Alegre,Bagé,Santa Maria,Caxias do Sul
+17,1937,Grêmio Santanense,Riograndense-RG,Novo Hamburgo,Riograndense-SM,Hortêncio Souza/Tom MixGrêmio Santanense,,Santana do Livramento,Rio Grande,Novo Hamburgo,Santa Maria
+18,1938,Guarany de Bagé,Riograndense-RG,Riograndense-SM,Renner,PicãoGuarany de Bagé,,Bagé,Rio Grande,Santa Maria,Porto Alegre
+19,1939,Riograndense-RG,Grêmio Santanense,Gaúcho,Novo Hamburgo,Carruíra/ChinêsRiograndense,,Rio Grande,Santana do Livramento,Passo Fundo,Novo Hamburgo
+20,1940,Internacional,Bagé,Riograndense-SM,Juventude,MarquesInternacional,,Porto Alegre,Bagé,Santa Maria,Caxias do Sul
 21,1941,Internacional,Rio Grande,Riograndense-SM,Riograndense-PF,José VillalbaInternacional,,Porto Alegre,Rio Grande,Santa Maria,Passo Fundo
 22,1942,Internacional,Novo Hamburgo,Armour,Brasil de Pelotas,José VillalbaInternacional,,Porto Alegre,Novo Hamburgo,Santana do Livramento,Pelotas
-23,1943,Internacional,Guarany-CS,Farroupilha,Guarany de Bagé,TesourinhaInternacional,,Porto Alegre,Cachoeira do Sul,Pelotas,Bagé
-24,1944,Internacional,Bagé,Cachoeira,Novo Hamburgo,XinximInternacional,,Porto Alegre,Bagé,Cachoeira do Sul,Novo Hamburgo
-25,1945,Internacional,Pelotas,Esperança,Inter SM,TesourinhaInternacional,,Porto Alegre,Pelotas,Novo Hamburgo,Santa Maria
-26,1946,Grêmio,Riograndense-RG,Grêmio Santanense,Guarany de Bagé,Cordeiro/HélioGrêmio,,Porto Alegre,Rio Grande,Santana do Livramento,Bagé
-27,1947,Internacional,Novo Hamburgo,Guarany de Bagé,Fluminense,CarlitosInternacional,,Porto Alegre,Novo Hamburgo,Bagé,Santana do Livramento
-28,1948,Internacional,Grêmio Santanense,Cachoeira,Novo Hamburgo,GhizzoniInternacional,5,Porto Alegre,Santana do Livramento,Cachoeira do Sul,Novo Hamburgo
-29,1949,Grêmio,Novo Hamburgo,14 de Julho,Brasil de Pelotas,Geada/HermesGrêmio,,Porto Alegre,Novo Hamburgo,Passo Fundo,Pelotas
+23,1943,Internacional,Guarany-CS,Farroupilha,Guarany de Bagé,TesourinhaInternacional,,Porto Alegre,Cachoeira do Sul,Pelotas,Bagé
+24,1944,Internacional,Bagé,Cachoeira,Novo Hamburgo,XinximInternacional,,Porto Alegre,Bagé,Cachoeira do Sul,Novo Hamburgo
+25,1945,Internacional,Pelotas,Esperança,Inter SM,TesourinhaInternacional,,Porto Alegre,Pelotas,Novo Hamburgo,Santa Maria
+26,1946,Grêmio,Riograndense-RG,Grêmio Santanense,Guarany de Bagé,Cordeiro/HélioGrêmio,,Porto Alegre,Rio Grande,Santana do Livramento,Bagé
+27,1947,Internacional,Novo Hamburgo,Guarany de Bagé,Fluminense,CarlitosInternacional,,Porto Alegre,Novo Hamburgo,Bagé,Santana do Livramento
+28,1948,Internacional,Grêmio Santanense,Cachoeira,Novo Hamburgo,GhizzoniInternacional,5,Porto Alegre,Santana do Livramento,Cachoeira do Sul,Novo Hamburgo
+29,1949,Grêmio,Novo Hamburgo,14 de Julho,Brasil de Pelotas,Geada/HermesGrêmio,,Porto Alegre,Novo Hamburgo,Passo Fundo,Pelotas
 30,1950,Internacional,Novo Hamburgo,Brasil de Pelotas,Uruguaiana,Ênio AndradeInternacional,3,Porto Alegre,Novo Hamburgo,Pelotas,Uruguaiana
 31,1951,Internacional,Pelotas,Rio Grande,,CanhotinhoInternacional,,Porto Alegre,Pelotas,Rio Grande,
 32,1952,Internacional,Novo Hamburgo,Brasil de Pelotas,14 de Julho,BodinhoInternacional,4,Porto Alegre,Novo Hamburgo,Pelotas,Passo Fundo
-33,1953,Internacional,Brasil de Pelotas,Uruguaiana,Guarany de Bagé,Luizinho/Canhotinho/BodinhoInternacional,,Porto Alegre,Pelotas,Uruguaiana,Bagé
+33,1953,Internacional,Brasil de Pelotas,Uruguaiana,Guarany de Bagé,Luizinho/Canhotinho/BodinhoInternacional,,Porto Alegre,Pelotas,Uruguaiana,Bagé
 34,1954,Renner,Brasil de Pelotas,Ferro Carril,,Breno MelloRenner,3,Porto Alegre,Pelotas,Uruguaiana,
 35,1955,Internacional,Brasil de Pelotas,Cruzeiro-SG,Uruguaiana,LarryInternacional,,Porto Alegre,Pelotas,São Gabriel,Uruguaiana
-36,1956,Grêmio,Pelotas,Cruzeiro-SG,Ferro Carril,GessyGrêmio,,Porto Alegre,Pelotas,São Gabriel,Uruguaiana
-37,1957,Grêmio,Bagé,Riograndense-RG,Santa Cruz,Cabral/Hercílio/ToquinhoBagé/Grêmio/Grêmio,2,Porto Alegre,Bagé,Rio Grande,Santa Cruz do Sul
-38,1958,Grêmio,Guarany de Bagé,14 de Julho,Pelotas,Max/Milton Kuelle/GiovaniGuarany de Bagé/Grêmio/Grêmio,2,Porto Alegre,Bagé,Passo Fundo,Pelotas
-39,1959,Grêmio,Farroupilha,Santa Cruz,Cruzeiro-SG,Juarez/GessyGrêmio,,Porto Alegre,Pelotas,Santa Cruz do Sul,São Gabriel
-40,1960,Grêmio,Pelotas,Nacional-CA,14 de Julho,GessyGrêmio,,Porto Alegre,Pelotas,Cruz Alta,Passo Fundo
-41,1961,Internacional,Grêmio,Novo Hamburgo,Farroupilha,SapirangaInternacional,16,Porto Alegre,Porto Alegre,Novo Hamburgo,Pelotas
-42,1962,Grêmio,Internacional,Guarany de Bagé,Caxias,Paulo Lumumba/GeovaniGrêmio/Novo Hamburgo,11,Porto Alegre,Porto Alegre,Bagé,Caxias do Sul
-43,1963,Grêmio,Internacional,Brasil de Pelotas,Aimoré,MarinoGrêmio,18,Porto Alegre,Porto Alegre,Pelotas,São Leopoldo
-44,1964,Grêmio,Internacional,Juventude,Brasil de Pelotas,OliAimoré,14,Porto Alegre,Porto Alegre,Caxias do Sul,Pelotas
-45,1965,Grêmio,Juventude,Novo Hamburgo,Internacional,AlcindoGrêmio,21,Porto Alegre,Caxias do Sul,Novo Hamburgo,Porto Alegre
-46,1966,Grêmio,Internacional,Juventude,Aimoré,SapirangaNovo Hamburgo,13,Porto Alegre,Porto Alegre,Caxias do Sul,São Leopoldo
-47,1967,Grêmio,Internacional,Farroupilha,Guarany de Bagé,NicoRiograndense,17,Porto Alegre,Porto Alegre,Pelotas,Bagé
-48,1968,Grêmio,Internacional,Cruzeiro,Brasil de Pelotas,AlcindoGrêmio,12,Porto Alegre,Porto Alegre,Cachoeirinha,Pelotas
-49,1969,Internacional,Grêmio,Caxias,Cruzeiro,ParaguaioCruzeiro-RS,8,Porto Alegre,Porto Alegre,Caxias do Sul,Cachoeirinha
-50,1970,Internacional,Grêmio,Caxias,Esportivo,ClaudiomiroInternacional,10,Porto Alegre,Porto Alegre,Caxias do Sul,Bento Gonçalves
-51,1971,Internacional,Grêmio,Esportivo,São José,Valdomiro/DécioInternacional/Esportivo,11,Porto Alegre,Porto Alegre,Bento Gonçalves,Porto Alegre
-52,1972,Internacional,Grêmio,Novo Hamburgo,Caxias,ClaudiomiroInternacional,13,Porto Alegre,Porto Alegre,Novo Hamburgo,Caxias do Sul
-53,1973,Internacional,Grêmio,Inter SM,Esportivo,BebetoGaúcho,12,Porto Alegre,Porto Alegre,Santa Maria,Bento Gonçalves
-54,1974,Internacional,Grêmio,Atlético Carazinho,Caxias,EscurinhoInternacional,11,Porto Alegre,Porto Alegre,Carazinho,Caxias do Sul
-55,1975,Internacional,Grêmio,Santa Cruz,Caxias,Tarciso/BebetoGrêmio/Gaúcho,13,Porto Alegre,Porto Alegre,Santa Cruz do Sul,Caxias do Sul
-56,1976,Internacional,Grêmio,Esportivo,Caxias,AlcindoGrêmio,17,Porto Alegre,Porto Alegre,Bento Gonçalves,Caxias do Sul
-57,1977,Grêmio,Internacional,Caxias,Juventude,Flávio/Luís FreirePelotas/Esportivo,13,Porto Alegre,Porto Alegre,Caxias do Sul,Caxias do Sul
-58,1978,Internacional,Grêmio,Caxias,Esportivo,Valdomiro/JairInternacional,15,Porto Alegre,Porto Alegre,Caxias do Sul,Bento Gonçalves
-59,1979,Grêmio,Esportivo,Internacional,São Paulo,JairInternacional,24,Porto Alegre,Bento Gonçalves,Porto Alegre,Rio Grande
-60,1980,Grêmio,Internacional,Inter SM,Novo Hamburgo,BaltazarGrêmio,28,Porto Alegre,Porto Alegre,Santa Maria,Novo Hamburgo
-61,1981,Internacional,Grêmio,Inter SM,Novo Hamburgo,BaltazarGrêmio,20,Porto Alegre,Porto Alegre,Santa Maria,Novo Hamburgo
-62,1982,Internacional,Grêmio,Esportivo,Novo Hamburgo,GeraldãoInternacional,20,Porto Alegre,Porto Alegre,Bento Gonçalves,Novo Hamburgo
-63,1983,Internacional,Brasil de Pelotas,Grêmio,Juventude,KitaJuventude,15,Porto Alegre,Pelotas,Porto Alegre,Caxias do Sul
-64,1984,Internacional,Grêmio,Brasil de Pelotas,Novo Hamburgo,Ademir AlcântaraPelotas,21,Porto Alegre,Porto Alegre,Pelotas,Novo Hamburgo
-65,1985,Grêmio,Internacional,Caxias,Novo Hamburgo,Caio Júnior/TitaGrêmio/Internacional,12,Porto Alegre,Porto Alegre,Caxias do Sul,Novo Hamburgo
-66,1986,Grêmio,Internacional,Juventude,Novo Hamburgo,BalaloInternacional,14,Porto Alegre,Porto Alegre,Caxias do Sul,Novo Hamburgo
-67,1987,Grêmio,Internacional,Esportivo,Caxias,AmarildoInternacional,17,Porto Alegre,Porto Alegre,Bento Gonçalves,Caxias do Sul
-68,1988,Grêmio,Internacional,Pelotas,Santa Cruz,LimaGrêmio,10,Porto Alegre,Porto Alegre,Pelotas,Santa Cruz do Sul
-69,1989,Grêmio,Internacional,Caxias,Glória,CaioJuventude,10,Porto Alegre,Porto Alegre,Caxias do Sul,Vacaria
-70,1990,Grêmio,Caxias,Internacional,Juventude,NílsonGrêmio,22,Porto Alegre,Caxias do Sul,Porto Alegre,Caxias do Sul
-71,1991,Internacional,Grêmio,Juventude,Lajeadense,GélsonLajeadense,17,Porto Alegre,Porto Alegre,Caxias do Sul,Lajeado
-72,1992,Internacional,Grêmio,Pelotas,Caxias,GílsonBrasil de Pelotas,13,Porto Alegre,Porto Alegre,Pelotas,Caxias do Sul
-73,1993,Grêmio,Internacional,Juventude,Pelotas,MauroGrêmio Santanense,19,Porto Alegre,Porto Alegre,Caxias do Sul,Pelotas
-74,1994,Internacional,Juventude,Ypiranga,Glória,Paulo GaúchoYpiranga de Erechim,24,Porto Alegre,Caxias do Sul,Erechim,Vacaria
-75,1995,Grêmio,Internacional,Juventude,São Luiz,AiltonYpiranga de Erechim,16,Porto Alegre,Porto Alegre,Caxias do Sul,Ijuí
-76,1996,Grêmio,Juventude,Santo Ângelo,Internacional,Sandro PiresYpiranga de Erechim,16,Porto Alegre,Caxias do Sul,Santo Ângelo,Porto Alegre
-77,1997,Internacional,Grêmio,Veranópolis,Brasil de Pelotas,Marcus ViníciusGuarani-VA,27,Porto Alegre,Porto Alegre,Veranópolis,Pelotas
-78,1998,Juventude,Internacional,Brasil de Pelotas,Veranópolis,BadicoInternacional-SM,17,Caxias do Sul,Porto Alegre,Pelotas,Veranópolis
-79,1999,Grêmio,Internacional,Veranópolis,Juventude,Ronaldinho GaúchoGrêmio,15,Porto Alegre,Porto Alegre,Veranópolis,Caxias do Sul
-80,2000,Caxias,Grêmio,Internacional,Juventude,FelipePasso Fundo,13,Caxias do Sul,Porto Alegre,Porto Alegre,Caxias do Sul
-81,2001,Grêmio,Juventude,Pelotas,Internacional,ChiquinhoSão José-RS,15,Porto Alegre,Caxias do Sul,Pelotas,Porto Alegre
+36,1956,Grêmio,Pelotas,Cruzeiro-SG,Ferro Carril,GessyGrêmio,,Porto Alegre,Pelotas,São Gabriel,Uruguaiana
+37,1957,Grêmio,Bagé,Riograndense-RG,Santa Cruz,Cabral/Hercílio/ToquinhoBagé/Grêmio/Grêmio,2,Porto Alegre,Bagé,Rio Grande,Santa Cruz do Sul
+38,1958,Grêmio,Guarany de Bagé,14 de Julho,Pelotas,Max/Milton Kuelle/GiovaniGuarany de Bagé/Grêmio/Grêmio,2,Porto Alegre,Bagé,Passo Fundo,Pelotas
+39,1959,Grêmio,Farroupilha,Santa Cruz,Cruzeiro-SG,Juarez/GessyGrêmio,,Porto Alegre,Pelotas,Santa Cruz do Sul,São Gabriel
+40,1960,Grêmio,Pelotas,Nacional-CA,14 de Julho,GessyGrêmio,,Porto Alegre,Pelotas,Cruz Alta,Passo Fundo
+41,1961,Internacional,Grêmio,Novo Hamburgo,Farroupilha,SapirangaInternacional,16,Porto Alegre,Porto Alegre,Novo Hamburgo,Pelotas
+42,1962,Grêmio,Internacional,Guarany de Bagé,Caxias,Paulo Lumumba/GeovaniGrêmio/Novo Hamburgo,11,Porto Alegre,Porto Alegre,Bagé,Caxias do Sul
+43,1963,Grêmio,Internacional,Brasil de Pelotas,Aimoré,MarinoGrêmio,18,Porto Alegre,Porto Alegre,Pelotas,São Leopoldo
+44,1964,Grêmio,Internacional,Juventude,Brasil de Pelotas,OliAimoré,14,Porto Alegre,Porto Alegre,Caxias do Sul,Pelotas
+45,1965,Grêmio,Juventude,Novo Hamburgo,Internacional,AlcindoGrêmio,21,Porto Alegre,Caxias do Sul,Novo Hamburgo,Porto Alegre
+46,1966,Grêmio,Internacional,Juventude,Aimoré,SapirangaNovo Hamburgo,13,Porto Alegre,Porto Alegre,Caxias do Sul,São Leopoldo
+47,1967,Grêmio,Internacional,Farroupilha,Guarany de Bagé,NicoRiograndense,17,Porto Alegre,Porto Alegre,Pelotas,Bagé
+48,1968,Grêmio,Internacional,Cruzeiro,Brasil de Pelotas,AlcindoGrêmio,12,Porto Alegre,Porto Alegre,Cachoeirinha,Pelotas
+49,1969,Internacional,Grêmio,Caxias,Cruzeiro,ParaguaioCruzeiro-RS,8,Porto Alegre,Porto Alegre,Caxias do Sul,Cachoeirinha
+50,1970,Internacional,Grêmio,Caxias,Esportivo,ClaudiomiroInternacional,10,Porto Alegre,Porto Alegre,Caxias do Sul,Bento Gonçalves
+51,1971,Internacional,Grêmio,Esportivo,São José,Valdomiro/DécioInternacional/Esportivo,11,Porto Alegre,Porto Alegre,Bento Gonçalves,Porto Alegre
+52,1972,Internacional,Grêmio,Novo Hamburgo,Caxias,ClaudiomiroInternacional,13,Porto Alegre,Porto Alegre,Novo Hamburgo,Caxias do Sul
+53,1973,Internacional,Grêmio,Inter SM,Esportivo,BebetoGaúcho,12,Porto Alegre,Porto Alegre,Santa Maria,Bento Gonçalves
+54,1974,Internacional,Grêmio,Atlético Carazinho,Caxias,EscurinhoInternacional,11,Porto Alegre,Porto Alegre,Carazinho,Caxias do Sul
+55,1975,Internacional,Grêmio,Santa Cruz,Caxias,Tarciso/BebetoGrêmio/Gaúcho,13,Porto Alegre,Porto Alegre,Santa Cruz do Sul,Caxias do Sul
+56,1976,Internacional,Grêmio,Esportivo,Caxias,AlcindoGrêmio,17,Porto Alegre,Porto Alegre,Bento Gonçalves,Caxias do Sul
+57,1977,Grêmio,Internacional,Caxias,Juventude,Flávio/Luís FreirePelotas/Esportivo,13,Porto Alegre,Porto Alegre,Caxias do Sul,Caxias do Sul
+58,1978,Internacional,Grêmio,Caxias,Esportivo,Valdomiro/JairInternacional,15,Porto Alegre,Porto Alegre,Caxias do Sul,Bento Gonçalves
+59,1979,Grêmio,Esportivo,Internacional,São Paulo,JairInternacional,24,Porto Alegre,Bento Gonçalves,Porto Alegre,Rio Grande
+60,1980,Grêmio,Internacional,Inter SM,Novo Hamburgo,BaltazarGrêmio,28,Porto Alegre,Porto Alegre,Santa Maria,Novo Hamburgo
+61,1981,Internacional,Grêmio,Inter SM,Novo Hamburgo,BaltazarGrêmio,20,Porto Alegre,Porto Alegre,Santa Maria,Novo Hamburgo
+62,1982,Internacional,Grêmio,Esportivo,Novo Hamburgo,GeraldãoInternacional,20,Porto Alegre,Porto Alegre,Bento Gonçalves,Novo Hamburgo
+63,1983,Internacional,Brasil de Pelotas,Grêmio,Juventude,KitaJuventude,15,Porto Alegre,Pelotas,Porto Alegre,Caxias do Sul
+64,1984,Internacional,Grêmio,Brasil de Pelotas,Novo Hamburgo,Ademir AlcântaraPelotas,21,Porto Alegre,Porto Alegre,Pelotas,Novo Hamburgo
+65,1985,Grêmio,Internacional,Caxias,Novo Hamburgo,Caio Júnior/TitaGrêmio/Internacional,12,Porto Alegre,Porto Alegre,Caxias do Sul,Novo Hamburgo
+66,1986,Grêmio,Internacional,Juventude,Novo Hamburgo,BalaloInternacional,14,Porto Alegre,Porto Alegre,Caxias do Sul,Novo Hamburgo
+67,1987,Grêmio,Internacional,Esportivo,Caxias,AmarildoInternacional,17,Porto Alegre,Porto Alegre,Bento Gonçalves,Caxias do Sul
+68,1988,Grêmio,Internacional,Pelotas,Santa Cruz,LimaGrêmio,10,Porto Alegre,Porto Alegre,Pelotas,Santa Cruz do Sul
+69,1989,Grêmio,Internacional,Caxias,Glória,CaioJuventude,10,Porto Alegre,Porto Alegre,Caxias do Sul,Vacaria
+70,1990,Grêmio,Caxias,Internacional,Juventude,NílsonGrêmio,22,Porto Alegre,Caxias do Sul,Porto Alegre,Caxias do Sul
+71,1991,Internacional,Grêmio,Juventude,Lajeadense,GélsonLajeadense,17,Porto Alegre,Porto Alegre,Caxias do Sul,Lajeado
+72,1992,Internacional,Grêmio,Pelotas,Caxias,GílsonBrasil de Pelotas,13,Porto Alegre,Porto Alegre,Pelotas,Caxias do Sul
+73,1993,Grêmio,Internacional,Juventude,Pelotas,MauroGrêmio Santanense,19,Porto Alegre,Porto Alegre,Caxias do Sul,Pelotas
+74,1994,Internacional,Juventude,Ypiranga,Glória,Paulo GaúchoYpiranga de Erechim,24,Porto Alegre,Caxias do Sul,Erechim,Vacaria
+75,1995,Grêmio,Internacional,Juventude,São Luiz,AiltonYpiranga de Erechim,16,Porto Alegre,Porto Alegre,Caxias do Sul,Ijuí
+76,1996,Grêmio,Juventude,Santo Ângelo,Internacional,Sandro PiresYpiranga de Erechim,16,Porto Alegre,Caxias do Sul,Santo Ângelo,Porto Alegre
+77,1997,Internacional,Grêmio,Veranópolis,Brasil de Pelotas,Marcus ViníciusGuarani-VA,27,Porto Alegre,Porto Alegre,Veranópolis,Pelotas
+78,1998,Juventude,Internacional,Brasil de Pelotas,Veranópolis,BadicoInternacional-SM,17,Caxias do Sul,Porto Alegre,Pelotas,Veranópolis
+79,1999,Grêmio,Internacional,Veranópolis,Juventude,Ronaldinho GaúchoGrêmio,15,Porto Alegre,Porto Alegre,Veranópolis,Caxias do Sul
+80,2000,Caxias,Grêmio,Internacional,Juventude,FelipePasso Fundo,13,Caxias do Sul,Porto Alegre,Porto Alegre,Caxias do Sul
+81,2001,Grêmio,Juventude,Pelotas,Internacional,ChiquinhoSão José-RS,15,Porto Alegre,Caxias do Sul,Pelotas,Porto Alegre
 82,2002,Internacional,15 de Novembro,Juventude,Pelotas,Sandro Sotilli15 de Novembro,21,Porto Alegre,Campo Bom,Caxias do Sul,Pelotas
-83,2003,Internacional,15 de Novembro,Juventude,São Gabriel,FlávioPelotas,18,Porto Alegre,Campo Bom,Caxias do Sul,São Gabriel
-83,2003,Internacional,15 de Novembro,Juventude,São Gabriel,FlávioPelotas,18,Porto Alegre,Campo Bom,Caxias do Sul,São Gabriel
-84,2004,Internacional,Canoas,Glória,Grêmio,Sandro SotilliGlória,27,Porto Alegre,Canoas,Vacaria,Porto Alegre
-85,2005,Internacional,15 de Novembro,Glória,Grêmio,FelipePasso Fundo,10,Porto Alegre,Campo Bom,Vacaria,Porto Alegre
-86,2006,Grêmio,Internacional,Juventude,Caxias,GiancarloNovo Hamburgo,14,Porto Alegre,Porto Alegre,Caxias do Sul,Caxias do Sul
-87,2007,Grêmio,Juventude,Veranópolis,Caxias,Vítor HugoVeranópolis,13,Porto Alegre,Caxias do Sul,Veranópolis,Caxias do Sul
+83,2003,Internacional,15 de Novembro,Juventude,São Gabriel,FlávioPelotas,18,Porto Alegre,Campo Bom,Caxias do Sul,São Gabriel
+84,2004,Internacional,Canoas,Glória,Grêmio,Sandro SotilliGlória,27,Porto Alegre,Canoas,Vacaria,Porto Alegre
+85,2005,Internacional,15 de Novembro,Glória,Grêmio,FelipePasso Fundo,10,Porto Alegre,Campo Bom,Vacaria,Porto Alegre
+86,2006,Grêmio,Internacional,Juventude,Caxias,GiancarloNovo Hamburgo,14,Porto Alegre,Porto Alegre,Caxias do Sul,Caxias do Sul
+87,2007,Grêmio,Juventude,Veranópolis,Caxias,Vítor HugoVeranópolis,13,Porto Alegre,Caxias do Sul,Veranópolis,Caxias do Sul
 88,2008,Internacional,Juventude,Inter SM,Caxias,Alex/MendesInternacional/Juventude,13,Porto Alegre,Caxias do Sul,Santa Maria,Caxias do Sul
-89,2009,Internacional,Grêmio,Ypiranga,Veranópolis,TaisonInternacional,15,Porto Alegre,Porto Alegre,Erechim,Veranópolis
-90,2010,Grêmio,Internacional,Caxias,São José,JeffersonSão José-RS,13,Porto Alegre,Porto Alegre,Caxias do Sul,Porto Alegre
-91,2011,Internacional,Grêmio,Juventude,Cruzeiro,Leandro DamiãoInternacional,17,Porto Alegre,Porto Alegre,Caxias do Sul,Cachoeirinha
-92,2012,Internacional,Caxias,Grêmio,Veranópolis,Leandro DamiãoInternacional,11,Porto Alegre,Caxias do Sul,Porto Alegre,Veranópolis
-93,2013,Internacional,Lajeadense,São Luiz,Grêmio,Diego ForlánInternacional,9,Porto Alegre,Lajeado,Ijuí,Porto Alegre
-94,2014,Internacional,Grêmio,Brasil de Pelotas,Caxias,Hernán BarcosGrêmio,13,Porto Alegre,Porto Alegre,Pelotas,Caxias do Sul
-95,2015,Internacional,Grêmio,Brasil de Pelotas,Juventude,MichelPasso Fundo,11,Porto Alegre,Porto Alegre,Pelotas,Caxias do Sul
-96,2016,Internacional,Juventude,Grêmio,São José,HeliardoSão José-RS,8,Porto Alegre,Caxias do Sul,Porto Alegre,Porto Alegre
-97,2017,Novo Hamburgo,Internacional,Caxias,Grêmio,Brenner/Miller Bolaños Internacional/Grêmio ,7,Novo Hamburgo,Porto Alegre,Caxias do Sul,Porto Alegre
-98,2018,Grêmio,Brasil de Pelotas,São José,Avenida,Michel  São Luiz,8,Porto Alegre,Pelotas,Porto Alegre,Santa Cruz do Sul
-99,2019,Grêmio,Internacional,Caxias,São Luiz,Marcão/Rafael Gava São Luiz/Caxias ,6,Porto Alegre,Porto Alegre,Caxias do Sul,Ijuí
-100,2020,Grêmio,Caxias,Internacional,Esportivo,Diego Souza Grêmio,9,Porto Alegre,Caxias do Sul,Porto Alegre,Bento Gonçalves
-101,2021,Grêmio,Internacional,Juventude,Caxias,Diego Souza Grêmio,7,Porto Alegre,Porto Alegre,Caxias do Sul,Caxias do Sul
-102,2022,Grêmio,Ypiranga,Internacional,Brasil de Pelotas,ErickYpiranga de Erechim,6,Porto Alegre,Erechim,Porto Alegre,Pelotas
+89,2009,Internacional,Grêmio,Ypiranga,Veranópolis,TaisonInternacional,15,Porto Alegre,Porto Alegre,Erechim,Veranópolis
+90,2010,Grêmio,Internacional,Caxias,São José,JeffersonSão José-RS,13,Porto Alegre,Porto Alegre,Caxias do Sul,Porto Alegre
+91,2011,Internacional,Grêmio,Juventude,Cruzeiro,Leandro DamiãoInternacional,17,Porto Alegre,Porto Alegre,Caxias do Sul,Cachoeirinha
+92,2012,Internacional,Caxias,Grêmio,Veranópolis,Leandro DamiãoInternacional,11,Porto Alegre,Caxias do Sul,Porto Alegre,Veranópolis
+93,2013,Internacional,Lajeadense,São Luiz,Grêmio,Diego ForlánInternacional,9,Porto Alegre,Lajeado,Ijuí,Porto Alegre
+94,2014,Internacional,Grêmio,Brasil de Pelotas,Caxias,Hernán BarcosGrêmio,13,Porto Alegre,Porto Alegre,Pelotas,Caxias do Sul
+95,2015,Internacional,Grêmio,Brasil de Pelotas,Juventude,MichelPasso Fundo,11,Porto Alegre,Porto Alegre,Pelotas,Caxias do Sul
+96,2016,Internacional,Juventude,Grêmio,São José,HeliardoSão José-RS,8,Porto Alegre,Caxias do Sul,Porto Alegre,Porto Alegre
+97,2017,Novo Hamburgo,Internacional,Caxias,Grêmio,Brenner/Miller Bolaños Internacional/Grêmio ,7,Novo Hamburgo,Porto Alegre,Caxias do Sul,Porto Alegre
+98,2018,Grêmio,Brasil de Pelotas,São José,Avenida,Michel  São Luiz,8,Porto Alegre,Pelotas,Porto Alegre,Santa Cruz do Sul
+99,2019,Grêmio,Internacional,Caxias,São Luiz,Marcão/Rafael Gava São Luiz/Caxias ,6,Porto Alegre,Porto Alegre,Caxias do Sul,Ijuí
+100,2020,Grêmio,Caxias,Internacional,Esportivo,Diego Souza Grêmio,9,Porto Alegre,Caxias do Sul,Porto Alegre,Bento Gonçalves
+101,2021,Grêmio,Internacional,Juventude,Caxias,Diego Souza Grêmio,7,Porto Alegre,Porto Alegre,Caxias do Sul,Caxias do Sul
+102,2022,Grêmio,Ypiranga,Internacional,Brasil de Pelotas,ErickYpiranga de Erechim,6,Porto Alegre,Erechim,Porto Alegre,Pelotas
