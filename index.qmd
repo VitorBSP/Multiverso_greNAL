@@ -1,0 +1,33 @@
+---
+title: "Presentation"
+format:
+  revealjs: 
+    theme: beige
+---
+
+
+## Slide Title {.smaller}
+::: {.incremental}
+- Eat spaghetti
+- Drink wine
+:::
+
+
+## Slide Title
+
+- Green ^[A footnote]
+- Brown
+- Purple
+
+::: footer
+Custom footer text
+:::
+
+
+## Slide Title
+
+Slide content
+
+::: aside
+Some additional commentary of more peripheral interest.
+:::
