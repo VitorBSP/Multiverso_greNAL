@@ -1,5 +1,6 @@
 ---
 title: "Multiverso GreNal"
+author: Vítor Pereira
 format:
   revealjs: 
     theme: beige
