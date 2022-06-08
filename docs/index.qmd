@@ -1,0 +1,973 @@
+---
+title: "Multiverso GreNal"
+format:
+  revealjs: 
+    theme: beige
+    transition: fade
+    
+---
+
+```{python setup}
+import pandas as pd
+import numpy as np
+from matplotlib import pyplot as plt
+import seaborn as sns
+from collections import Counter
+from adjustText import adjust_text
+from matplotlib.ticker import FuncFormatter
+formatter = FuncFormatter(lambda y, pos: "%d%%" % (y))
+campeonatos = pd.read_csv('./datas/campeonatos_gauchos_tratado.csv', sep=',', 
+                            dtype=({'Edicao': np.uint8, 'Ano' : np.uint16, 'Artilheiro' : object, 
+                            'Primeiro' : 'category' , 'Segundo' : 'category', 'Terceiro' : 'category', 
+                            'Quarto' : 'category', 'Cidade_Primeiro' : 'category' , 
+                            'Cidade_Segundo' : 'category', 'Cidade_Terceiro' : 'category', 
+                            'Cidade_Quarto' : 'category', 'N_de_gols' : 'Int8'}))
+times = pd.read_csv('./datas/times_gauchos_tratado.csv', sep=',', 
+                    dtype = ({'Apelido': 'category', 'Nome' : 'category', 'Cidade': 'category'}))
+cidades = pd.read_csv('./datas/cidades_gauchas_tratado.csv', dtype=({'Cidade' : 'category', 'Microrregioes' : 'category',
+                                                                'Mesorregioes' : 'category'}))
+times['Fundacao'] = pd.to_datetime(times['Fundacao'], infer_datetime_format= False, dayfirst=True, format = '%d/%m/%Y', errors = 'coerce')
+
+```
+
+```{python func}
+
+def multiverso_count(data,y,xlabel,ylabel,title, h = 8, w = 6):
+    with plt.xkcd():
+        fig, ax = plt.subplots(figsize=(h, w))
+        ax = sns.countplot(ax = ax,data=data, y=y, order = data[y].value_counts().index)
+        ax.bar_label(ax.containers[0])
+        ax.set_xlabel(xlabel)
+        ax.set_ylabel(ylabel)
+        ax.set_title(title)
+        return plt.show()
+
+def graphics_point(data, x, y, size, text_label, hue, title, xlabel, ylabel, label_legend = [], title_legend =[], high=[], h = 10, w =8):
+    with plt.style.context('fivethirtyeight'):
+        fig, ax = plt.subplots(figsize=(h, w))
+        if high == []:
+            high = text_label
+        if label_legend == []:
+            label_legend = hue
+        sns.scatterplot(ax= ax, data=data[data[x] > 0], x=x, y=y, hue=hue, size=size, 
+        sizes=(100, 1000))
+        text = []   
+        for i, point in data.iterrows():
+            if point[text_label] in high:
+                text.append(ax.text(point[x], point[y], str(point[text_label])))
+        adjust_text(text,avoid_points = True)
+        handles, labels = ax.get_legend_handles_labels()
+        labels[len(pd.unique(data[hue])) + 1] = label_legend
+        ax.set_title(title)
+        ax.set_xlabel(xlabel)
+        ax.set_ylabel(ylabel)
+        ax.legend(handles = handles[1:], labels = labels[1:], loc='lower right', title= title_legend)
+        return plt.show()
+
+def normal_count(data,y,xlabel,ylabel,title, h = 8, w = 6):
+    with plt.style.context('fivethirtyeight'):
+        fig, ax = plt.subplots(figsize=(h, w))
+        sns.countplot(ax = ax, data=data, y=y, order = data[y].value_counts().index)
+        ax.bar_label(ax.containers[0])
+        ax.set_xlabel(xlabel)
+        ax.set_ylabel(ylabel)
+        ax.set_title(title)
+        return plt.show()
+
+def graphics_point_m(data, x, y, size, text_label, hue, title, xlabel, ylabel, label_legend = [], title_legend =[], high=[], h = 10, w =8):
+    with plt.xkcd():
+        fig, ax = plt.subplots(figsize=(h, w))
+        if high == []:
+            high = text_label
+        if label_legend == []:
+            label_legend = hue
+        sns.scatterplot(ax= ax, data=data[data[x] > 0], x=x, y=y, hue=hue, size=size, sizes=(100, 1000))
+        text = []   
+        for i, point in data.iterrows():
+            if point[text_label] in high:
+                text.append(ax.text(point[x], point[y], str(point[text_label])))
+        adjust_text(text,avoid_points = True)
+        handles, labels = ax.get_legend_handles_labels()
+        labels[len(pd.unique(data[hue])) + 1] = label_legend
+        ax.set_title(title)
+        ax.set_xlabel(xlabel)
+        ax.set_ylabel(ylabel)
+        ax.legend(handles = handles[1:], labels = labels[1:], loc='lower right', title= title_legend)
+        return plt.show()
+```
+
+## Sumário
+
+- Ideias
+- Coleta, Tratamento e Análise dos dados
+- Motivação
+- Visualização dos Dados
+- O que é o Multiverso?
+- Visualização dos dados
+- Prelúdio para o Trabalho 2
+- Opiniões sobre Python
+
+
+## Ideias
+::: {.incremental}
+- Utilizar Python;
+- Realizar tratamendo dos dataframes;
+    - Web Scraping
+- Utilizar análise no **[STATufsm](https://www.instagram.com/statufsm/)**
+:::
+
+
+## Coleta de dados
+
+. . .
+
+- Principais:
+
+    - [Wikipédia](https://pt.wikipedia.org/wiki/Wikipédia:Página_principal);
+    - [IBGE Cidades](https://cidades.ibge.gov.br);
+    - [Bola Amarela](https://bolaamarelafc.com.br/campeonatos/estaduais/campeonato-gaucho-1a-divisao/).
+
+. . .
+    
+- Secundários:
+
+    
+    - [Times do RS](https://timesdors.blogspot.com);
+    - [Grêmiopédia](https://www.gremiopedia.com/wiki/Página_principal);
+    - [Wikipédia](https://pt.wikipedia.org/wiki/Wikipédia:Página_principal).
+
+## Etapas e principal dificuldade
+
+::: {.incremental}
+- Coleta dos dados (Web Scraping):
+    - Acentos.
+- Tratamentos dos dados:
+    - Acentos^['Grêmio' == 'Grêmio' -> False].
+- Análise dos dados:
+    - Visualização dos dados no python.
+:::
+
+::: footer
+ggplot2 >>>>>> matplotlib & seaborn
+:::
+
+## Porcentagem de tempo gasto em cada etapa
+
+
+::: {.panel-tabset}
+
+### Gráfico
+
+```{python}
+#| fig-align: center
+fig, ax = plt.subplots(figsize=(6, 6))
+
+ax.set_aspect('equal')
+tempo = [15,60,5,20]
+wedges, texts, percs = ax.pie(tempo, labels=['Coleta', 'Tratamento', 'Análise', 'Visualização'],  autopct="%1.1f%%")
+
+groups = [[0],[1],[2,3]]
+radfraction = 0.1
+for group in groups:
+    ang = np.deg2rad((wedges[group[-1]].theta2 + wedges[group[0]].theta1) / 2)
+    for j in group:
+        center = radfraction * wedges[j].r * np.array([np.cos(ang), np.sin(ang)])
+        wedges[j].set_center(center)
+        texts[j].set_position(np.array(texts[j].get_position()) + center)
+        percs[j].set_position(np.array(percs[j].get_position()) + center)
+ax.autoscale(True)
+```
+
+### Código
+
+```{python}
+#| eval: false
+#| echo: true
+#| output: false
+fig, ax = plt.subplots(figsize=(8, 7))
+
+ax.set_aspect('equal')
+tempo = [15,60,5,20]
+wedges, texts, percs = ax.pie(tempo, labels=['Coleta', 'Tratamento', 
+'Análise', 'Visualização'],  autopct="%1.1f%%")
+
+groups = [[0],[1],[2,3]]
+radfraction = 0.1
+for group in groups:
+    ang = np.deg2rad((wedges[group[-1]].theta2 + wedges[group[0]].theta1) / 2)
+    for j in group:
+        center = radfraction * wedges[j].r * np.array([np.cos(ang), 
+        np.sin(ang)])
+        wedges[j].set_center(center)
+        texts[j].set_position(np.array(texts[j].get_position()) + center)
+        percs[j].set_position(np.array(percs[j].get_position()) + center)
+ax.autoscale(True)
+```
+
+:::
+
+
+
+## Apresentação dos bancos {.scrollable}
+
+::: {.panel-tabset}
+
+### Campeonatos
+
+<style>
+table.dataframe {
+font-size:50%;
+}
+</style>
+
+```{python}
+campeonatos.head(8).to_html(index=False,columns=['Ano', 'Primeiro', 'Segundo',  'Artilheiro', 'N_de_gols', 'Cidade_Primeiro','Cidade_Segundo'])
+```
+
+### Times
+
+```{python}
+times.tail(10).to_html(index = False)
+```
+
+
+### Cidades
+
+```{python}
+cidades.head(8).to_html(index = False, columns=['Cidade', 'Populacao_2021', 'Microrregioes', 'Mesorregioes', 'PIB_2019', 'PIB_per_capita_2019', 'IDH_2010'])
+```
+
+### Códigos
+
+```{python}
+#| eval: false
+#| echo: true
+# <style>
+# table.dataframe {
+# font-size:50%;
+# }
+</style>
+campeonatos.head(8).to_html(index=False,columns=['Ano', 'Primeiro', 
+                                                'Segundo',  
+                                                'Artilheiro', 'N_de_gols', 
+                                                'Cidade_Primeiro',
+                                                'Cidade_Segundo'])
+times.tail(10).to_html(index = False)
+cidades.head(8).to_html(index = False, columns=['Cidade', 'Populacao_2021', 
+                                                'Microrregioes', 
+                                                'Mesorregioes', 
+                                                'PIB_2019', 
+                                                'PIB_per_capita_2019', 
+                                                'IDH_2010'])
+```
+
+:::
+
+
+## Entendo as variáveis do banco {.scrollable}
+
+::: {.panel-tabset}
+
+### Campeonatos
+
+```{python}
+campeonatos.dtypes.to_frame().reset_index(level=0).\
+    rename(columns={'index' : 'Variáveis', 0 : 'Tipos'}).\
+    merge(campeonatos.isnull().sum().to_frame().reset_index(level=0).\
+        rename(columns={'index' : 'Variáveis_l', 0 : 'Quantidade NA'}), how ='left',
+        left_on='Variáveis', right_on='Variáveis_l').drop(columns=['Variáveis_l'])
+```
+
+### Times
+
+
+```{python}
+times.describe(include='all')
+```
+
+```{python}
+times.isnull().sum().to_frame().reset_index(level=0).rename(columns={'index' : 'Variáveis', 0 : 'Tipos'})
+```
+
+### Cidades
+
+```{python}
+cidades.describe(include='all')
+```
+
+
+### Códigos
+
+```{python}
+#| eval: false
+#| echo: true
+
+campeonatos.dtypes.to_frame().reset_index(level=0).\
+    rename(columns={'index' : 'Variáveis', 0 : 'Tipos'}).\
+    merge(campeonatos.isnull().sum().to_frame().reset_index(level=0).\
+        rename(columns={'index' : 'Variáveis_l', 0 : 'Quantidade NA'}),
+        how ='left',
+        left_on='Variáveis', right_on='Variáveis_l').\
+        drop(columns=['Variáveis_l'])
+times.describe(include='all')
+times.isnull().sum().to_frame().reset_index(level=0).\
+    rename(columns={'index' : 'Variáveis', 0 : 'Tipos'})
+cidades.describe(include='all')
+
+```
+
+:::
+
+
+# Motivação
+
+## Dupla greNAL vs Outros Times
+::: {.panel-tabset}
+
+### Gráfico
+
+```{python}
+#| fig-align: center
+with plt.style.context('bmh'):
+    fig, ax = plt.subplots(figsize=(8, 6))
+    sns.barplot(ax = ax, data=campeonatos['Primeiro'].\
+        map({'Grêmio': 'GreNAL', 'Internacional' : 'GreNAL'}).\
+            fillna('Outros').to_frame().groupby(by='Primeiro').\
+                size().to_frame().reset_index().\
+                    rename(columns={0:'Titulos'}), 
+                            order =['Outros', 'GreNAL'],
+                x='Primeiro', y='Titulos', 
+                estimator=lambda x: max(x)/ sum(campeonatos['Primeiro'].\
+                    map({'Grêmio': 'GreNAL', 'Internacional' : 'GreNAL'}).\
+                        fillna('Outros').to_frame().groupby(by='Primeiro').\
+                            size().to_frame().reset_index().\
+                                rename(columns={0:'Titulos'})['Titulos']) * 100)
+    ax.bar_label(ax.containers[0], fmt='%.2f%%' )
+    ax.set_xlabel('Quantidade de títulos')
+    ax.set_ylabel('Agrupamento de times')
+    ax.set_title('Comparação dos títulos gaúchos da dupla \
+GreNal com os outros times')
+    ax.yaxis.set_major_formatter(formatter)
+    plt.show()
+```
+
+### Código
+
+```{python}
+#| eval: false
+#| echo: true
+
+with plt.style.context('bmh'):
+    fig, ax = plt.subplots(figsize=(8, 6))
+    sns.barplot(ax = ax, data=campeonatos['Primeiro'].\
+        map({'Grêmio': 'GreNAL', 'Internacional' : 'GreNAL'}).\
+            fillna('Outros').to_frame().groupby(by='Primeiro').\
+                size().to_frame().reset_index().\
+                    rename(columns={0:'Titulos'}), 
+                            order =['Outros', 'GreNAL'],
+                x='Primeiro', y='Titulos', 
+                estimator=lambda x: max(x)/ sum(campeonatos['Primeiro'].\
+                    map({'Grêmio': 'GreNAL', 'Internacional' : 'GreNAL'}).\
+                        fillna('Outros').to_frame().groupby(by='Primeiro').\
+                            size().to_frame().reset_index().\
+                                rename(columns={0:'Titulos'})['Titulos'])
+                                 * 100)
+    ax.bar_label(ax.containers[0], fmt='%.2f%%' )
+    ax.set_xlabel('Quantidade de títulos')
+    ax.set_ylabel('Agrupamento de times')
+    ax.set_title('Comparação dos títulos gaúchos da dupla \
+GreNal com os outros times')
+    ax.yaxis.set_major_formatter(formatter)
+    plt.show()
+
+```
+
+:::
+
+## Visualização dos dados 
+
+::: {.panel-tabset}
+
+### Campeões
+
+:::: {.columns}
+
+:::: {.column width="50%"}
+
+```{python}
+normal_count(campeonatos, 'Primeiro', 'Número de títulos', 'Campeões', 'Títulos por times', w = 5)
+```
+
+::::
+
+:::: {.column width="50%"}
+
+```{python}
+normal_count(campeonatos, 'Cidade_Primeiro', 'Número de títulos', 'Cidades com campeões', 'Títulos por cidade', h = 8, w = 5)
+```
+::::
+
+::::
+
+
+### Vices 
+
+:::: {.columns}
+
+:::: {.column width="50%"}
+
+```{python}
+normal_count(campeonatos, 'Segundo', 'Número de Vices', 'Vice-Campeões', 'Vice Campeonatos por times', w = 5)
+```
+
+::::
+
+:::: {.column width="50%"}
+
+```{python}
+normal_count(campeonatos, 'Cidade_Segundo', 'Vice-campeonatos', 'Cidades com vices', 'Vices-campeonatos por cidades', w = 5)
+```
+::::
+
+::::
+### Gráficos
+
+```{python}
+#| eval: false
+#| echo: true
+
+def normal_count(data,y,xlabel,ylabel,title, h = 8, w = 6):
+    with plt.style.context('fivethirtyeight'):
+        fig, ax = plt.subplots(figsize=(h, w))
+        sns.countplot(ax = ax, data=data, y=y, order = data[y].value_counts().index)
+        ax.bar_label(ax.containers[0])
+        ax.set_xlabel(xlabel)
+        ax.set_ylabel(ylabel)
+        ax.set_title(title)
+        return plt.show()
+normal_count(campeonatos, 'Primeiro', 'Número de títulos', 'Campeões', 'Títulos por times', w = 5)
+```
+
+:::
+
+# Por que "Multiverso"?
+
+##  {background-color="black" background-image="imagens/multiverso.webp" }
+
+##  {background-color="black" background-image="imagens/multiverso_grenal.png" }
+
+## Perguntas a serem respondidas{.smaller}
+
+::: {.incremental}
+- Quem seriam os principais times?
+- Quais seriam as principais cidades?
+- O polo de futebol, sairia da região metropolitana?
+- Quais covariáveis influenciam no crescimento de um time de futebol?
+- Quais os principais clássicos?
+![](http://pa1.narvii.com/6929/20cebc0cd1d06e66d07d20f867cdd8499ecac566r1-268-268_00.gif){.absolute top=350 right=370 width="450" height="250"}
+:::
+
+## O principal clássico com certeza seria Taqua-a-Taqua
+
+### Taquarense vs Taquariense
+
+![](https://upload.wikimedia.org/wikipedia/pt/2/27/Sport_Club_Taquarense.png){.absolute top=150 left=80 width="450" height="450"}
+![](http://4.bp.blogspot.com/-5e-14Phg55A/VCcwCITe2XI/AAAAAAAAH-I/1qFazlZIHKE/s1600/Taquariense%2Bde%2BTaquari.gif){.absolute top=150 right=80 width="450" height="450"}
+
+
+## Criando o Multiverso {.scrollable}
+
+- Apenas defini Inter e Grêmio como extintos e substituí pelos times que viriam em posições inferiores e mantive os campeões que não foram da dupla, assim o banco ficou:
+
+::: {.panel-tabset}
+
+### Banco
+
+```{python}
+multiverso_campeonatos = campeonatos.iloc[:, 0:6]
+multiverso_campeonatos['Primeiro'] = multiverso_campeonatos['Primeiro'].\
+    map({'Internacional' : 'extinto','Grêmio' : 'extinto'}).\
+        fillna(multiverso_campeonatos['Primeiro'])
+multiverso_campeonatos['Segundo'] = multiverso_campeonatos['Segundo'].\
+    map({'Internacional' : 'extinto','Grêmio' : 'extinto'}).\
+        fillna(multiverso_campeonatos['Segundo'])
+multiverso_campeonatos['Terceiro'] = multiverso_campeonatos['Terceiro'].\
+    map({'Internacional' : 'extinto','Grêmio' : 'extinto'}).\
+        fillna(multiverso_campeonatos['Terceiro'])
+multiverso_campeonatos['Quarto'] = multiverso_campeonatos['Quarto'].\
+    map({'Internacional' : 'extinto','Grêmio' : 'extinto'}).\
+        fillna(multiverso_campeonatos['Quarto'])
+
+multiverso_campeonatos.tail(5).to_html(index=False, 
+                                        columns=['Primeiro', 'Segundo', 
+                                        'Terceiro', 'Quarto'])
+
+```
+
+### Código 
+```{python}
+#| eval: false
+#| echo: true
+multiverso_campeonatos = campeonatos.iloc[:, 0:6]
+multiverso_campeonatos['Primeiro'] = multiverso_campeonatos['Primeiro'].\
+    map({'Internacional' : 'extinto','Grêmio' : 'extinto'}).\
+        fillna(multiverso_campeonatos['Primeiro'])
+multiverso_campeonatos['Segundo'] = multiverso_campeonatos['Segundo'].\
+    map({'Internacional' : 'extinto','Grêmio' : 'extinto'}).\
+        fillna(multiverso_campeonatos['Segundo'])
+multiverso_campeonatos['Terceiro'] = multiverso_campeonatos['Terceiro'].\
+    map({'Internacional' : 'extinto','Grêmio' : 'extinto'}).\
+        fillna(multiverso_campeonatos['Terceiro'])
+multiverso_campeonatos['Quarto'] = multiverso_campeonatos['Quarto'].\
+    map({'Internacional' : 'extinto','Grêmio' : 'extinto'}).\
+        fillna(multiverso_campeonatos['Quarto'])
+
+multiverso_campeonatos.tail(5).to_html(index=False, 
+                                        columns=['Primeiro', 'Segundo', 
+                                        'Terceiro', 'Quarto'])
+
+```
+
+:::
+
+## Criando o Multiverso {.scrollable}
+
+::: {.panel-tabset}
+
+### Banco
+```{python}
+for index,rows in multiverso_campeonatos.iterrows():
+  #for i in rows: 
+  if(multiverso_campeonatos.iloc[index,2] == 'extinto'):
+    multiverso_campeonatos.iloc[index,2] = multiverso_campeonatos.iloc[index,3]
+    multiverso_campeonatos.iloc[index,3] = multiverso_campeonatos.iloc[index,4]
+    multiverso_campeonatos.iloc[index,4] = multiverso_campeonatos.iloc[index,5]
+    multiverso_campeonatos.iloc[index,5] = None
+    if(multiverso_campeonatos.iloc[index,2] == 'extinto'):
+      multiverso_campeonatos.iloc[index,2] = multiverso_campeonatos.iloc[index,3]
+      multiverso_campeonatos.iloc[index,3] = multiverso_campeonatos.iloc[index,4]
+      multiverso_campeonatos.iloc[index,4] = multiverso_campeonatos.iloc[index,5]
+      multiverso_campeonatos.iloc[index,5] = None
+  if(multiverso_campeonatos.iloc[index,3] == 'extinto'):
+    multiverso_campeonatos.iloc[index,3] = multiverso_campeonatos.iloc[index,4]
+    multiverso_campeonatos.iloc[index,4] = multiverso_campeonatos.iloc[index,5]
+    multiverso_campeonatos.iloc[index,5] = None
+    if(multiverso_campeonatos.iloc[index,3] == 'extinto'):
+      multiverso_campeonatos.iloc[index,3] = multiverso_campeonatos.iloc[index,4]
+      multiverso_campeonatos.iloc[index,4] = multiverso_campeonatos.iloc[index,5]
+      multiverso_campeonatos.iloc[index,5] = None
+  if(multiverso_campeonatos.iloc[index,4] == 'extinto'):
+    multiverso_campeonatos.iloc[index,4] = multiverso_campeonatos.iloc[index,5]
+    multiverso_campeonatos.iloc[index,5] = None
+    if(multiverso_campeonatos.iloc[index,4] == 'extinto'):
+      multiverso_campeonatos.iloc[index,4] = multiverso_campeonatos.iloc[index,5]
+      multiverso_campeonatos.iloc[index,5] = None
+  if(multiverso_campeonatos.iloc[index,5] == 'extinto'):
+    multiverso_campeonatos.iloc[index,5] = None
+multiverso_campeonatos = multiverso_campeonatos.\
+    merge(times, how='left', left_on='Primeiro', right_on = "Apelido").\
+        drop(columns=['Apelido', 'Nome', 'Fundacao']).\
+            rename(columns={"Cidade": "Cidade_Primeiro"}) .\
+    merge(times, how='left', left_on='Segundo', right_on = "Apelido").\
+        drop(columns=['Apelido', 'Nome', 'Fundacao']).\
+            rename(columns={"Cidade": "Cidade_Segundo"}) .\
+    merge(times, how='left', left_on='Terceiro', right_on = "Apelido").\
+        drop(columns=['Apelido', 'Nome', 'Fundacao']).\
+            rename(columns={"Cidade": "Cidade_Terceiro"}) .\
+    merge(times, how='left', left_on='Quarto', right_on = "Apelido").\
+        drop(columns=['Apelido', 'Nome', 'Fundacao']).\
+            rename(columns={"Cidade": "Cidade_Quarto"})
+
+multiverso_campeonatos.drop_duplicates(subset=['Ano'], inplace=True)
+
+multiverso_campeonatos.tail(5).to_html(index=False, 
+                                        columns=['Primeiro', 'Segundo', 
+                                        'Cidade_Primeiro', 'Cidade_Segundo'])
+
+
+```
+### Código 
+```{python}
+#| eval: false
+#| echo: true
+
+for index,rows in multiverso_campeonatos.iterrows():
+  #for i in rows: 
+  if(multiverso_campeonatos.iloc[index,2] == 'extinto'):
+    multiverso_campeonatos.iloc[index,2] = multiverso_campeonatos.iloc[index,3]
+    multiverso_campeonatos.iloc[index,3] = multiverso_campeonatos.iloc[index,4]
+    multiverso_campeonatos.iloc[index,4] = multiverso_campeonatos.iloc[index,5]
+    multiverso_campeonatos.iloc[index,5] = None
+    if(multiverso_campeonatos.iloc[index,2] == 'extinto'):
+      multiverso_campeonatos.iloc[index,2] = multiverso_campeonatos.iloc[index,3]
+      multiverso_campeonatos.iloc[index,3] = multiverso_campeonatos.iloc[index,4]
+      multiverso_campeonatos.iloc[index,4] = multiverso_campeonatos.iloc[index,5]
+      multiverso_campeonatos.iloc[index,5] = None
+  if(multiverso_campeonatos.iloc[index,3] == 'extinto'):
+    multiverso_campeonatos.iloc[index,3] = multiverso_campeonatos.iloc[index,4]
+    multiverso_campeonatos.iloc[index,4] = multiverso_campeonatos.iloc[index,5]
+    multiverso_campeonatos.iloc[index,5] = None
+    if(multiverso_campeonatos.iloc[index,3] == 'extinto'):
+      multiverso_campeonatos.iloc[index,3] = multiverso_campeonatos.iloc[index,4]
+      multiverso_campeonatos.iloc[index,4] = multiverso_campeonatos.iloc[index,5]
+      multiverso_campeonatos.iloc[index,5] = None
+  if(multiverso_campeonatos.iloc[index,4] == 'extinto'):
+    multiverso_campeonatos.iloc[index,4] = multiverso_campeonatos.iloc[index,5]
+    multiverso_campeonatos.iloc[index,5] = None
+    if(multiverso_campeonatos.iloc[index,4] == 'extinto'):
+      multiverso_campeonatos.iloc[index,4] = multiverso_campeonatos.iloc[index,5]
+      multiverso_campeonatos.iloc[index,5] = None
+  if(multiverso_campeonatos.iloc[index,5] == 'extinto'):
+    multiverso_campeonatos.iloc[index,5] = None
+multiverso_campeonatos = multiverso_campeonatos.\
+    merge(times, how='left', left_on='Primeiro', right_on = "Apelido").\
+        drop(columns=['Apelido', 'Nome', 'Fundacao']).\
+            rename(columns={"Cidade": "Cidade_Primeiro"}) .\
+    merge(times, how='left', left_on='Segundo', right_on = "Apelido").\
+        drop(columns=['Apelido', 'Nome', 'Fundacao']).\
+            rename(columns={"Cidade": "Cidade_Segundo"}) .\
+    merge(times, how='left', left_on='Terceiro', right_on = "Apelido").\
+        drop(columns=['Apelido', 'Nome', 'Fundacao']).\
+            rename(columns={"Cidade": "Cidade_Terceiro"}) .\
+    merge(times, how='left', left_on='Quarto', right_on = "Apelido").\
+        drop(columns=['Apelido', 'Nome', 'Fundacao']).\
+            rename(columns={"Cidade": "Cidade_Quarto"})
+multiverso_campeonatos.tail(5).to_html(index=False, 
+                                        columns=['Primeiro', 'Segundo', 
+                                        'Cidade_Primeiro', 'Cidade_Segundo'])
+
+```
+:::
+
+## Entendo as variáveis do banco
+
+
+```{python}
+multiverso_campeonatos.describe(include = 'all').iloc[:4].to_html(
+    columns = ['Primeiro', 'Segundo', 'Terceiro', 'Quarto', 
+                'Cidade_Primeiro', 'Cidade_Segundo', 
+                'Cidade_Terceiro'])
+```
+
+```{python}
+multiverso_campeonatos.isnull().sum().to_frame().reset_index(level=0).rename(columns={'index' : 'Variáveis', 0 : 'Quantidade de NA'})
+```
+
+## Visualização dos dados {.scrollable}
+
+::: {.panel-tabset}
+
+### Campeões
+
+:::: {.columns}
+
+:::: {.column width="50%"}
+
+```{python}
+multiverso_count(multiverso_campeonatos, 'Primeiro', 'Número de títulos', 
+'Campeões', 'Títulos por times', h = 10, w = 8)
+```
+
+::::
+
+:::: {.column width="50%"}
+
+```{python}
+with plt.xkcd():
+    fig, ax = plt.subplots(figsize=(10, 8))
+    sns.countplot(ax=ax, data=multiverso_campeonatos, y='Cidade_Primeiro', order = multiverso_campeonatos['Cidade_Primeiro'].cat.remove_unused_categories().value_counts().index)
+    ax.bar_label(ax.containers[0])
+    ax.set_xlabel('Número de títulos')
+    ax.set_ylabel('Cidades com campeões')
+    ax.set_title('Títulos por cidade')
+    plt.show()
+```
+::::
+
+::::
+
+
+### Vices 
+
+:::: {.columns}
+
+:::: {.column width="50%"}
+
+```{python}
+multiverso_count(multiverso_campeonatos, 'Segundo', 'Número de Vices', 'Vice-Campeões', 'Vice Campeonatos por times', h = 10, w = 8)
+```
+
+::::
+
+:::: {.column width="50%"}
+
+```{python}
+with plt.xkcd():
+    fig, ax = plt.subplots(figsize=(10, 8))
+    sns.countplot(ax=ax, data=multiverso_campeonatos, y='Cidade_Segundo', order = multiverso_campeonatos['Cidade_Segundo'].cat.remove_unused_categories().value_counts().index)
+    ax.bar_label(ax.containers[0])
+    ax.set_xlabel('Número de vices')
+    ax.set_ylabel('Cidades com vice-campeões')
+    ax.set_title('Vices por cidade')
+    plt.show()
+```
+::::
+
+::::
+### Códigos
+
+```{python}
+#| eval: false
+#| echo: true
+
+def multiverso_count(data,y,xlabel,ylabel,title, h = 8, w = 6):
+    with plt.xkcd():
+        fig, ax = plt.subplots(figsize=(h, w))
+        ax = sns.countplot(ax = ax,data=data, y=y, order = data[y].value_counts().index)
+        ax.bar_label(ax.containers[0])
+        ax.set_xlabel(xlabel)
+        ax.set_ylabel(ylabel)
+        ax.set_title(title)
+        return plt.show()
+```
+
+:::
+
+
+## O que interfere no sucesso dos times? {.scrollable}
+
+
+### As cidades onde estão?
+
+
+
+### Prelúdio para o trabalho 2
+
+
+```{python}
+
+titulos_cidade = campeonatos.groupby(['Cidade_Primeiro']).\
+    size().to_frame().reset_index(level=0).\
+        rename(columns={0: 'Quantidade', 'Cidade_Primeiro' : 'Cidades'})
+vice_cidade = campeonatos.groupby(['Cidade_Segundo']).\
+    size().to_frame().reset_index(level=0).\
+        rename(columns={0: 'Quantidade', 'Cidade_Segundo' : 'Cidades'})
+
+city_counter = Counter(campeonatos['Cidade_Primeiro'])
+city_counter.update(campeonatos['Cidade_Segundo']) 
+city_counter.update(campeonatos['Cidade_Terceiro'])
+city_counter.update(campeonatos['Cidade_Quarto'])
+
+del city_counter[np.nan] 
+
+top4_cidade = pd.DataFrame.\
+    from_dict(dict(city_counter), orient='index').\
+        reset_index(level=0).\
+    rename(columns={'index' : 'Cidades', 0 : 'Vezes_top_4'}).\
+        sort_values(by=['Vezes_top_4'], ascending=False, ignore_index = True)
+
+cidades =  cidades.\
+    merge(top4_cidade, how='left', left_on='Cidade', right_on = "Cidades").\
+        drop(columns=['Cidades']).\
+    merge(vice_cidade, how='left', left_on='Cidade', right_on = "Cidades").\
+        drop(columns=['Cidades']).\
+            rename(columns={'Quantidade' : 'Quantidade_Segundo'}).\
+    merge(titulos_cidade, how='left', left_on='Cidade', right_on = "Cidades").\
+        drop(columns=['Cidades']).\
+            rename(columns={'Quantidade' : 'Quantidade_Primeiro'})
+
+cidades['Principal_Micro'] = cidades.\
+    apply(lambda x: 'Principal Cidade' if x['Cidade'] in x['Microrregioes'] else 'Cidade Satélite', axis = 1)
+
+cidades['Quantidade_Primeiro'] = cidades['Quantidade_Primeiro'].\
+    map({np.nan : 0}).fillna(cidades['Quantidade_Primeiro'])
+cidades['Quantidade_Segundo'] = cidades['Quantidade_Segundo'].\
+    map({np.nan : 0}).fillna(cidades['Quantidade_Segundo'])
+cidades['Vezes_top_4'] = cidades['Vezes_top_4'].\
+    map({np.nan : 0}).fillna(cidades['Vezes_top_4'])
+
+titulos_multiverso_cidade = multiverso_campeonatos.groupby(['Cidade_Primeiro']).\
+    size().to_frame().reset_index(level=0).\
+        rename(columns={0: 'Quantidade', 'Cidade_Primeiro' : 'Cidades'})
+vice_multiverso_cidade = multiverso_campeonatos.groupby(['Cidade_Segundo']).\
+    size().to_frame().reset_index(level=0).\
+        rename(columns={0: 'Quantidade', 'Cidade_Segundo' : 'Cidades'})
+
+multiverso_city_counter = Counter(multiverso_campeonatos['Cidade_Primeiro'])
+multiverso_city_counter.update(multiverso_campeonatos['Cidade_Segundo']) 
+multiverso_city_counter.update(multiverso_campeonatos['Cidade_Terceiro'])
+multiverso_city_counter.update(multiverso_campeonatos['Cidade_Quarto'])
+
+del multiverso_city_counter[np.nan] 
+
+top4_multiverso_cidade = pd.DataFrame.\
+    from_dict(dict(multiverso_city_counter), orient='index').\
+        reset_index(level=0).\
+    rename(columns={'index' : 'Cidades', 0 : 'Vezes_top_4_Multiverso'}).\
+        sort_values(by=['Vezes_top_4_Multiverso'], ascending=False, ignore_index = True)   
+
+```
+
+```{python}
+cidades =  cidades.\
+    merge(top4_multiverso_cidade, how='left', left_on='Cidade', right_on = "Cidades").\
+        drop(columns=['Cidades']).\
+    merge(vice_multiverso_cidade, how='left', left_on='Cidade', right_on = "Cidades").\
+        drop(columns=['Cidades']).\
+            rename(columns={'Quantidade' : 'Quantidade_Segundo_Multiverso'}).\
+    merge(titulos_multiverso_cidade, how='left', left_on='Cidade', right_on = "Cidades").\
+        drop(columns=['Cidades']).\
+            rename(columns={'Quantidade' : 'Quantidade_Primeiro_Multiverso'})
+
+cidades['Quantidade_Primeiro_Multiverso'] = cidades['Quantidade_Primeiro_Multiverso'].\
+    map({np.nan : 0}).fillna(cidades['Quantidade_Primeiro_Multiverso'])
+cidades['Quantidade_Segundo_Multiverso'] = cidades['Quantidade_Segundo_Multiverso'].\
+    map({np.nan : 0}).fillna(cidades['Quantidade_Segundo_Multiverso'])
+cidades['Vezes_top_4_Multiverso'] = cidades['Vezes_top_4_Multiverso'].\
+    map({np.nan : 0}).fillna(cidades['Vezes_top_4_Multiverso'])
+```
+
+
+```{python}
+cidades.head(6)
+```
+
+## Criação de uma variável categória
+
+```{python}
+cidades.head(6).to_html(index = False, columns = ['Cidade', 
+                                        'Microrregioes', 'Mesorregioes', 'Principal_Micro'])
+```
+
+
+## Visualização dos dados {.scrollable}
+
+::: {.panel-tabset}
+
+### PIB
+:::: {.columns}
+
+:::: {.column width="50%"}
+
+```{python}
+graphics_point(cidades[cidades['Vezes_top_4'] > 0 ], x='Vezes_top_4', y='PIB_2019', size='Quantidade_Primeiro', text_label='Cidade', hue='Mesorregioes', 
+                title='PIB e Futebol se relacionam?', xlabel='Quantidade de vezes da cidade no top 4 do Gauchão', ylabel='PIB em 2019', 
+                label_legend='Títulos da Cidade', title_legend='Mesorregiões',
+                high=['Porto Alegre', 'Pelotas', 'Caxias do Sul', 'Bagé', 'Rio Grande', 'Santa Maria', 'Novo Hamburgo'] )
+```
+
+
+::::
+
+:::: {.column width="50%"}
+
+```{python}
+graphics_point_m(cidades[cidades['Vezes_top_4_Multiverso'] > 0 ], x='Vezes_top_4_Multiverso', y='PIB_2019', size='Quantidade_Primeiro_Multiverso', text_label='Cidade', hue='Mesorregioes', 
+                title='PIB e Futebol se relacionam?', xlabel='Quantidade de vezes da cidade no top 4 do Gauchão', ylabel='PIB em 2019', 
+                label_legend='Títulos da Cidade', title_legend='Mesorregiões',
+                high=['Porto Alegre', 'Pelotas', 'Caxias do Sul', 'Bagé', 'Rio Grande', 'Santa Maria', 'Novo Hamburgo'] )
+```
+::::
+
+::::
+
+### IDH
+
+:::: {.columns}
+
+:::: {.column width="50%"}
+
+```{python}
+graphics_point(cidades, 'Vezes_top_4', 'IDH_2010', 'Quantidade_Primeiro', 'Cidade', 'Principal_Micro', 'IDH e Futebol se relacionam?',
+                'Quantidade de vezes da cidade no top 4 do Gauchão', 'IDH em 2010', 'Títulos da Cidade', 'Importância da Cidade',
+                ['Porto Alegre', 'Pelotas', 'Caxias do Sul', 'Bagé', 'Rio Grande', 'Santa Maria', 'Novo Hamburgo'] )
+```
+
+
+::::
+
+:::: {.column width="50%"}
+
+```{python}
+graphics_point_m(cidades, 'Vezes_top_4_Multiverso', 'IDH_2010', 'Quantidade_Primeiro_Multiverso', 'Cidade', 'Principal_Micro', 'IDH e Futebol se relacionam?',
+                'Quantidade de vezes da cidade no top 4 do Gauchão', 'IDH em 2010', 'Títulos da Cidade', 'Importância da Cidade',
+                ['Porto Alegre', 'Pelotas', 'Caxias do Sul', 'Bagé', 'Rio Grande', 'Santa Maria', 'Novo Hamburgo'] )
+```
+
+
+::::
+
+::::
+
+### PIB per capita
+
+:::: {.columns}
+
+:::: {.column width="50%"}
+
+```{python}
+graphics_point(cidades[cidades['Vezes_top_4'] > 0 ], x='Vezes_top_4', y='PIB_per_capita_2019', size='Quantidade_Primeiro', text_label='Cidade', hue='Principal_Micro', 
+                title='PIB per capita e Futebol se relacionam?', xlabel='Quantidade de vezes da cidade no top 4 do Gauchão', ylabel='Pib per capita em 2021', 
+                label_legend='Títulos da Cidade', title_legend='Importância das Cidades',
+                high=['Porto Alegre', 'Pelotas', 'Caxias do Sul', 'Bagé', 'Rio Grande', 'Santa Maria', 'Novo Hamburgo'] )
+```
+
+
+::::
+
+:::: {.column width="50%"}
+
+```{python}
+graphics_point_m(cidades[cidades['Vezes_top_4_Multiverso'] > 0 ], x='Vezes_top_4_Multiverso', y='PIB_per_capita_2019', size='Quantidade_Primeiro_Multiverso', text_label='Cidade', hue='Mesorregioes', 
+                title='PIB per capita e Futebol se relacionam?', xlabel='Quantidade de vezes da cidade no top 4 do Gauchão', ylabel='População em 2021', 
+                label_legend='Títulos da Cidade', title_legend='Mesorregiões',
+                high=['Porto Alegre', 'Pelotas', 'Caxias do Sul', 'Bagé', 'Rio Grande', 'Santa Maria', 'Novo Hamburgo'] )
+```
+
+
+::::
+
+::::
+
+### População
+
+:::: {.columns}
+
+:::: {.column width="50%"}
+
+```{python}
+graphics_point(cidades[cidades['Vezes_top_4'] > 0 ], x='Vezes_top_4', y='Populacao_2021', size='Quantidade_Primeiro', text_label='Cidade', hue='Principal_Micro', 
+                title='Quantidade populacional e Futebol se relacionam?', xlabel='Quantidade de vezes da cidade no top 4 do Gauchão', ylabel='Pib per capita em 2021', 
+                label_legend='Títulos da Cidade', title_legend='Importância das Cidades',
+                high=['Porto Alegre', 'Pelotas', 'Caxias do Sul', 'Bagé', 'Rio Grande', 'Santa Maria', 'Novo Hamburgo'] )
+```
+
+::::
+
+:::: {.column width="50%"}
+
+```{python}
+graphics_point_m(cidades[cidades['Vezes_top_4_Multiverso'] > 0 ], x='Vezes_top_4_Multiverso', y='Populacao_2021', size='Quantidade_Primeiro_Multiverso', text_label='Cidade', hue='Mesorregioes', 
+                title='Quantidade populacional e Futebol se relacionam?', xlabel='Quantidade de vezes da cidade no top 4 do Gauchão', ylabel='População em 2021', 
+                label_legend='Títulos da Cidade', title_legend='Mesorregiões',
+                high=['Porto Alegre', 'Pelotas', 'Caxias do Sul', 'Bagé', 'Rio Grande', 'Santa Maria', 'Novo Hamburgo'] )
+```
+
+::::
+
+::::
+
+:::
+
+
+## Opiniões sobre Python
+
+::: {.incremental}
+- Tidyverse > Pandas;
+- GGplot2 >>>>>>>>>>>>>>> Seaborn >>> Matplotlib;
+- Tratamento de strings do Python > R;
+- Velocidade de execução Python > R;
+- Quarto > Xaringan.
+:::
+
+![](http://pa1.narvii.com/6493/426703dd6c36995d6762b1e15e1ea37cab1fa762_00.gif){.absolute top=480 right=70 width="450" height="200"}

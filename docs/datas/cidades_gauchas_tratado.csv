@@ -25,7 +25,7 @@ Esteio,80669,83352,Porto Alegre,Metropolitana,2096486.0,3436739.01,25988.74,4130
 Cachoeira do Sul,83827,81552,Cachoeira do Sul,Centro Oriental,1222148.0,2414633.64,14579.4,29374.75,0.546,0.661,0.742
 Sapiranga,75020,80514,Porto Alegre,Metropolitana,1571774.0,3500606.94,20951.41,42829.26,0.463,0.597,0.711
 Santo Ângelo,76304,77544,Santo Ângelo,Noroeste,1203996.0,2828429.28,15778.93,36452.12,0.568,0.685,0.772
-Santana do Livramento,82513,75647,Campanha Central,Sudoeste,,,,,,,
+Sant'ana do Livramento,82513,75647,Campanha Central,Sudoeste,873868.0,2617268.1,10590.67,33978.58,0.557,0.663,0.727
 Santa Rosa,68587,73882,Santa Rosa,Noroeste,1486462.0,3191247.97,21670.12,43564.15,0.555,0.685,0.769
 Farroupilha,63635,73758,Caxias do Sul,Nordeste,1853766.0,3562093.48,29128.49,49247.12,0.56,0.691,0.777
 Alegrete,77673,72493,Campanha Ocidental,Sudoeste,1064425.0,2138004.29,13703.92,29053.31,0.524,0.641,0.74
@@ -122,7 +122,7 @@ Agudo,16729,16344,Restinga Seca,Centro Ocidental,245071.0,536911.8,14649.46,3261
 Getúlio Vargas,16156,16158,Erechim,Noroeste,291020.0,637794.07,18013.12,39340.86,0.532,0.665,0.746
 São Pedro do Sul,16371,16100,Santa Maria,Centro Ocidental,182866.0,393973.14,11170.14,24322.33,0.476,0.614,0.709
 Giruá,17085,15729,Santo Ângelo,Noroeste,377335.0,806585.21,22085.78,50398.98,0.479,0.626,0.721
-Restinga Seca,15850,15702,Restinga Seca,Centro Ocidental,,,,,,,
+Restinga Sêca,15850,15702,Restinga Seca,Centro Ocidental,199249.0,456594.51,12570.94,28918.52,0.49,0.586,0.683
 Espumoso,15240,15594,Cruz Alta,Noroeste,292440.0,718625.0,19188.99,46101.17,0.519,0.653,0.765
 Dom Feliciano,14380,15556,Camaquã,Metropolitana,142957.0,292675.31,9941.36,18987.63,0.318,0.47,0.587
 Sobradinho,14285,15041,Santa Cruz do Sul,Centro Oriental,218756.0,383785.28,15313.68,25642.1,0.538,0.65,0.743
@@ -240,7 +240,7 @@ Estação,6011,5924,Erechim,Noroeste,106867.0,284537.39,17778.63,47757.2,0.534,0
 Alpestre,8027,5885,Frederico Westphalen,Noroeste,83489.0,536480.91,10401.0,85727.21,0.346,0.524,0.671
 Rodeio Bonito,5743,5868,Frederico Westphalen,Noroeste,73328.0,195157.8,12768.23,33263.64,0.496,0.642,0.732
 Araricá,4868,5840,Porto Alegre,Metropolitana,74628.0,193348.52,15330.39,33932.7,0.414,0.565,0.679
-Passa-Sete,5159,5790,Santa Cruz do Sul,Centro Oriental,,,,,,,
+Passa Sete,5159,5790,Santa Cruz do Sul,Centro Oriental,50410.0,110847.45,9771.23,19440.1,0.3,0.503,0.622
 Trindade do Sul,5802,5781,Frederico Westphalen,Noroeste,75700.0,210791.69,13081.02,36330.87,0.378,0.561,0.687
 Picada Café,5182,5780,Gramado-Canela,Metropolitana,238961.0,326941.63,46113.72,56938.63,0.52,0.653,0.758
 Alecrim,7045,5710,Santa Rosa,Noroeste,58429.0,118024.79,8293.73,19836.1,0.425,0.548,0.672
