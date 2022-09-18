@@ -1,7 +1,7 @@
 ---
-title: "title"
-author: "author"
-abstract: "abstract"
+title: "Efeito GreNal"
+author: "Vítor Pereira"
+abstract: "O trabalho, busca mensurar e informar sobre o impacto da dupla GreNal e de Porto Alegre no futebol gaúcho, também buscando verificar quais as outras cidades polos do Futebol. Para fins de investigação, também analisaremos um mundo hipotético no qual a dupla GreNal simplesmente seria extinta ou removida suas colocações para podermos ter uma noção do tamanho do impacto da dissolução de suas maiores potenciais. "
 header-includes:
    - \usepackage[brazil]{babel}
    - \usepackage{bm}
@@ -30,7 +30,9 @@ library(patchwork)
 
 
 ```{r}
-bar_plot <- function(df, v) {
+bar_plot <- function(df, v, labx = "Campeões") {
+  my.cols = RColorBrewer::brewer.pal(name="Set1", n =9)
+  my.cols = my.cols[-3]
   ggplot(df, aes(
     x = {{ v }},
     y = prop.table(stat(count)),
@@ -45,25 +47,41 @@ bar_plot <- function(df, v) {
       size = 3.5
     ) +
     scale_y_continuous(labels = scales::percent) +
-    scale_fill_brewer(palette = "Set3", drop = FALSE) +
-    labs(y = "Proporção", x = df %>%
-      select({{ v }}) %>%
-      names()) +
+    scale_fill_manual(values = my.cols) +
+    labs(y = 'Proporção', x = labx) +
     theme(plot.title = element_text(hjust = 0.5, size = 10))
 }
 
 
 col_plot <- function(df, v) {
+  mycolors = c(RColorBrewer::brewer.pal(name="Accent", n = 8), 
+               RColorBrewer::brewer.pal(name="Set1", n = 9))
+  ggplot(df, aes(
+    x = reorder({{ v }},n),
+    fill =  {{ v }},
+    y = n
+  )) +
+    geom_bar(position = "dodge", color = "black", stat = 'identity') +
+    labs(y = "Quantidade títulos", x = df %>%
+      select({{ v }}) %>%
+      names()) +
+    theme(plot.title = element_text(hjust = 0.5, size = 10)) +
+    scale_fill_manual(values = mycolors) +
+    coord_flip()
+}
+
+col_plot2 <- function(df, v, labx = "Campeões", laby = "Quantidade de títulos") {
+  mycolors = c(RColorBrewer::brewer.pal(name="Accent", n = 8),
+               rev(RColorBrewer::brewer.pal(name="Set1", n = 9)), 
+               RColorBrewer::brewer.pal(name="Set2", n = 8)
+               )
   ggplot(df, aes(
     x = {{ v }},
     fill =  {{ v }}
   )) +
     geom_bar(position = "dodge", color = "black") +
-    scale_y_continuous(labels = scales::percent) +
-    scale_fill_brewer(palette = "Set3", drop = FALSE) +
-    labs(y = "Quantidade títulos", x = df %>%
-      select({{ v }}) %>%
-      names()) +
+    scale_fill_manual(values = mycolors) +
+    labs(y = laby, x = labx) +
     theme(plot.title = element_text(hjust = 0.5, size = 10)) +
     coord_flip()
 }
@@ -81,6 +99,22 @@ times = readr::read_csv('./datas/times_gauchos_tratado.csv')
 
 \section{Motivação}
 
+A motivação do estudo é propagar e estudar a dimensão da dupla GreNal no Rio 
+Grande do Sul, tanto em títulos como em vice campeonatos, no gráfico abaixo 
+percebe-se que apenas as barras de Inter e Grêmio são completamente predominantes,
+além deles apenas o Guarany de Bagé possui mais de um título gaúcho.
+
+```{r}
+col_plot2(campeonatos %>% mutate(Primeiro = forcats::fct_infreq(Primeiro) %>% 
+                                   forcats::fct_rev()), 
+         Primeiro) +
+  theme(legend.position="none")
+```
+
+Inter e Grêmio somam juntos mais de 85 títulos e mais de 80% dos campeonatos, 
+os outros times gaúchos somados tem menos da metade dos títulos de Inter e Grêmio
+separadamente. Uma dominância completa que coloca Porto Alegre como a principal
+cidade do futebol gaúcho.
 
 ```{r}
 campeonatos %>% mutate(Primeiro = 
@@ -88,15 +122,68 @@ campeonatos %>% mutate(Primeiro =
                                      Primeiro != 'Grêmio' ~ 'Outros',
                                    TRUE ~ Primeiro), 
                        Primeiro = forcats::fct_infreq(Primeiro)) %>%
-  bar_plot(Primeiro)
+  bar_plot(Primeiro) +
+  theme(legend.position="none")
 ```
 
 \section{Estudo}
 
+A dominância portoalegrense é absoluta com cerca de 30 vezes mais títulos que as
+cidades em segundo lugar, no entanto, já podemos vislumbrar outras
+cidades que se destacam como cidades marginais e concorrentes ao domínio de POA:
+Bagé, Pelotas, Rio Grande e Caxias. 
+
 ```{r}
-col_plot(campeonatos %>% 
-           mutate(Primeiro = forcats::fct_infreq(Primeiro)), Primeiro)
+col_plot2(campeonatos %>% mutate(Cidade_Primeiro = forcats::fct_infreq(Cidade_Primeiro) %>% 
+                                   forcats::fct_rev()), 
+         Cidade_Primeiro, labx = 'Cidade Campeãs') +
+  theme(legend.position="none")
+```
+
+Porto Alegre expande a supremacia da Dupla GreNal somando a eles os títulos do 
+Americano e Renner, com 86% dos títulos.
+
+```{r}
+campeonatos %>% mutate(Cidade_Primeiro = 
+                         case_when(Cidade_Primeiro != 'Porto Alegre'  ~ 'Outros',
+                                   TRUE ~ Cidade_Primeiro), 
+                       Cidade_Primeiro = forcats::fct_infreq(Cidade_Primeiro)) %>%
+  bar_plot(Cidade_Primeiro, labx = 'Cidade Campeãs') +
+  theme(legend.position="none")
+```
+
+A análise dos segundos colocados reitera a dominação da Dupla GreNal continuando
+entres os dois que mais aparecem nessas posições, assim podemos garantir que um
+número extremamente elevado de finais gaúchas foi feita entre os dois times.
+
+```{r}
+col_plot2(campeonatos %>% mutate(Segundo = forcats::fct_infreq(Segundo) %>% 
+                                   forcats::fct_rev()), 
+         Segundo, labx = "Vice-Campeões") +
+  theme(legend.position="none")
+```
+
+Entre os vices-campeões, a dominância de Porto Alegre e da Dupla Grenal é notável, 
+mas sofre uma queda acentuada de praticamente metade, caindo para 49% a porcentagem
+de times portoalegrenses em segundo lugar. Apenas 5 finais de 102 campeonatos, 
+não tiveram nenhum time da dupla. Nota-se que Bagé, Pelotas, Rio Grande e Caxias 
+também continuam em posições de destaque agora com a adição de Novo Hamburgo, 
+assim sendo as cidades que mais competem com a capital gaúcha.
+
+```{r}
+col_plot2(campeonatos %>% mutate(Cidade_Segundo = forcats::fct_infreq(Cidade_Segundo) %>% 
+                                   forcats::fct_rev()), 
+         Cidade_Segundo, labx = 'Cidades Vice-Campeãs') +
+  theme(legend.position="none")
 ```
 
 
+```{r}
+campeonatos %>% mutate(Cidade_Segundo = 
+                         case_when(Cidade_Segundo != 'Porto Alegre'  ~ 'Outros',
+                                   TRUE ~ Cidade_Segundo), 
+                       Cidade_Segundo = forcats::fct_infreq(Cidade_Segundo)) %>%
+  bar_plot(Cidade_Segundo) +
+  theme(legend.position="none")
+```
 
