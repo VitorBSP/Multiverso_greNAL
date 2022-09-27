@@ -9,6 +9,7 @@ header-includes:
 geometry: left=1.7cm, right=1.7cm, top=3cm, bottom=3cm
 output:
   bookdown::pdf_document2:
+    keep_md: true
 editor_options:
   chunk_output_type: console
 indent: true
@@ -72,7 +73,7 @@ col_plot <- function(df, v) {
 
 col_plot2 <- function(df, v, labx = "Campeões", laby = "Quantidade de títulos") {
   mycolors = c(RColorBrewer::brewer.pal(name="Accent", n = 8),
-               rev(RColorBrewer::brewer.pal(name="Set1", n = 9)), 
+               rev(RColorBrewer::brewer.pal(name="Set1", n = 9)),
                RColorBrewer::brewer.pal(name="Set2", n = 8)
                )
   ggplot(df, aes(
@@ -105,10 +106,25 @@ percebe-se que apenas as barras de Inter e Grêmio são completamente predominan
 além deles apenas o Guarany de Bagé possui mais de um título gaúcho.
 
 ```{r}
+cols <- c("Internacional" = "#e40911", "Grêmio" = "#0464b3", 
+          "Juventude" = "#049434", "Guarany de Bagé" = "#e22227",
+          "Brasil de Pelotas" = "#c3242c", "Caxias" = "#8c0555",
+          "Caxias" = "#8c0555", "Bagé" = "#fbcb33", "Novo Hamburgo" = "#0494dc",
+          "Pelotas" = "#f6db07", "15 de Novembro" = "#008B51", 
+          "Riograndense-RG" = "#c41a24", "Farroupilha" = "#0a8e4f",
+          "Grêmio Santanense" = "#de1d1b", "Guarani de Alegrete" = "#fc140c",
+          "Canoas" = "#231730", "Esportivo" = "#113d90", "Renner" = "#D3241B", 
+          "Lajeadense" = "#75c4f3", "Riograndense-SM" = "#308029",
+          "Ypiranga" = "#13954a", "Americano" = "#800F2D", 
+          "Cruzeiro" = "#000B7B", "Rio Grande" = "#F7ED00", 
+          "São Paulo" = "#008359", "Guarany-CS" = '#8BB13E') 
+
+
 col_plot2(campeonatos %>% mutate(Primeiro = forcats::fct_infreq(Primeiro) %>% 
                                    forcats::fct_rev()), 
          Primeiro) +
-  theme(legend.position="none")
+  theme(legend.position="none") +
+  scale_fill_manual(values = cols)
 ```
 
 Inter e Grêmio somam juntos mais de 85 títulos e mais de 80% dos campeonatos, 
@@ -116,14 +132,18 @@ os outros times gaúchos somados tem menos da metade dos títulos de Inter e Gr�
 separadamente. Uma dominância completa que coloca Porto Alegre como a principal
 cidade do futebol gaúcho.
 
-```{r}
+```{r fig.width = 4.5, fig.height= 3.5}
+cols2 <- c("Internacional" = "#e40911", "Grêmio" = "#0464b3", 
+           "Outros" = "#984ea3")
+
 campeonatos %>% mutate(Primeiro = 
                          case_when(Primeiro != 'Internacional' & 
                                      Primeiro != 'Grêmio' ~ 'Outros',
                                    TRUE ~ Primeiro), 
                        Primeiro = forcats::fct_infreq(Primeiro)) %>%
   bar_plot(Primeiro) +
-  theme(legend.position="none")
+  theme(legend.position="none")  +
+  scale_fill_manual(values = cols2)
 ```
 
 \section{Estudo}
@@ -133,34 +153,47 @@ cidades em segundo lugar, no entanto, já podemos vislumbrar outras
 cidades que se destacam como cidades marginais e concorrentes ao domínio de POA:
 Bagé, Pelotas, Rio Grande e Caxias. 
 
-```{r}
+```{r }
+city_cols = c("Porto Alegre" = "#3BCF3E", "Bagé" = "#8D7649", 
+              "Pelotas" = "#66CCFF", "Rio Grande" = "#3FB6F9", 
+              "Caxias do Sul" = "#D9B200", "Cachoeirinha" = "#273888",
+              "Novo Hamburgo" = "#FF0000", "Santana do Livramento" = "#00923F",
+              "Campo Bom" = "#F4B3B8", "Alegrete" = "#B22456", 
+              "Bento Gonçalves" = "#00B1F0", "Cachoeira do Sul" = "#FFFF00",
+              "Canoas" = "#3B6F4E", "Erechim" = "#AE0105", "Lajeado" = "#B7A690",
+              "Santa Maria" = "#B74F8F")
 col_plot2(campeonatos %>% mutate(Cidade_Primeiro = forcats::fct_infreq(Cidade_Primeiro) %>% 
                                    forcats::fct_rev()), 
          Cidade_Primeiro, labx = 'Cidade Campeãs') +
-  theme(legend.position="none")
+  theme(legend.position="none")  +
+  scale_fill_manual(values = city_cols)
 ```
 
 Porto Alegre expande a supremacia da Dupla GreNal somando a eles os títulos do 
 Americano e Renner, com 86% dos títulos.
 
-```{r}
+```{r fig.width = 4.5, fig.height= 3.5}
+city_cols2 = c("Porto Alegre" = "#3BCF3E", "Outros" = "#E0E0E0")
 campeonatos %>% mutate(Cidade_Primeiro = 
                          case_when(Cidade_Primeiro != 'Porto Alegre'  ~ 'Outros',
                                    TRUE ~ Cidade_Primeiro), 
                        Cidade_Primeiro = forcats::fct_infreq(Cidade_Primeiro)) %>%
   bar_plot(Cidade_Primeiro, labx = 'Cidade Campeãs') +
-  theme(legend.position="none")
+  theme(legend.position="none") +
+  scale_fill_manual(values = city_cols2)
 ```
 
 A análise dos segundos colocados reitera a dominação da Dupla GreNal continuando
 entres os dois que mais aparecem nessas posições, assim podemos garantir que um
-número extremamente elevado de finais gaúchas foi feita entre os dois times.
+número extremamente elevado de finais gaúchas foi feita entre os dois times, 
+ficando extamente empatados em número de finais para cada time, 68.
 
 ```{r}
 col_plot2(campeonatos %>% mutate(Segundo = forcats::fct_infreq(Segundo) %>% 
                                    forcats::fct_rev()), 
          Segundo, labx = "Vice-Campeões") +
-  theme(legend.position="none")
+  theme(legend.position="none") +
+  scale_fill_manual(values = cols)
 ```
 
 Entre os vices-campeões, a dominância de Porto Alegre e da Dupla Grenal é notável, 
@@ -174,7 +207,8 @@ assim sendo as cidades que mais competem com a capital gaúcha.
 col_plot2(campeonatos %>% mutate(Cidade_Segundo = forcats::fct_infreq(Cidade_Segundo) %>% 
                                    forcats::fct_rev()), 
          Cidade_Segundo, labx = 'Cidades Vice-Campeãs') +
-  theme(legend.position="none")
+  theme(legend.position="none") +
+  scale_fill_manual(values = city_cols)
 ```
 
 
@@ -184,6 +218,7 @@ campeonatos %>% mutate(Cidade_Segundo =
                                    TRUE ~ Cidade_Segundo), 
                        Cidade_Segundo = forcats::fct_infreq(Cidade_Segundo)) %>%
   bar_plot(Cidade_Segundo) +
-  theme(legend.position="none")
+  theme(legend.position="none")  +
+  scale_fill_manual(values = city_cols2)
 ```
 
